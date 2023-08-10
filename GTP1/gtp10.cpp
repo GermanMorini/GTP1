@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
         cout << "Ingrese un número: ";
         cin >> n;
 
-        cout << "La sumatoria es: " << sum(n) << endl;
+        cout << "La sumatoria de sus digitos es: " << sum(n) << endl;
 
         return 0;
 }
