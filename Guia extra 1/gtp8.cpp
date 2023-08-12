@@ -3,8 +3,12 @@
 
 using namespace std;
 
-bool validate(int age) {
-        return age < 18;
+void validate(int age, char name[]) {
+        if(age < 18) {
+                cout << "La persona " << name << " puede recibir el beneficio" << endl;
+        } else {
+                 cout << "La persona " << name << " NO puede recibir el beneficio" << endl;
+        }
 }
 
 int main(int argc, char const *argv[]) {
@@ -20,11 +24,7 @@ int main(int argc, char const *argv[]) {
                 cin >> age;
         }
 
-        if(validate(age)) {
-                cout << "La persona " << name << " puede recibir el beneficio" << endl;
-        } else {
-                 cout << "La persona " << name << " NO puede recibir el beneficio" << endl;
-        }
+        validate(age, name);
 
         return 0;
 }

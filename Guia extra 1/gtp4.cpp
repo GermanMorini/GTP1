@@ -14,7 +14,7 @@ int main(int argc, char const *argv[]) {
                 data[1] = atoi(argv[2]);
                 data[2] = atoi(argv[3]);
         } else {
-                cout << "Ingrese la cantidad de partidos ganador, empatados y perdidos: ";
+                cout << "Ingrese la cantidad de partidos ganados, empatados y perdidos: ";
                 cin >> data[0];
                 cin >> data[1];
                 cin >> data[2];
