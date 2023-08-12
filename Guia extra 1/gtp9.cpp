@@ -2,18 +2,18 @@
 
 using namespace std;
 
-int get_avg(int u[]) {
-        int sum = 0;
+float get_avg(int u[]) {
+        float avg = 0;
 
         for(int d = 0; d < 7; d++) {
-                sum += u[d];
+                avg += u[d]/7.0;
         }
 
-        return sum/7;
+        return avg;
 }
 
 void check(int u[]) {
-        int avg = get_avg(u);
+        float avg = get_avg(u);
         int c = 0;
 
         c += avg > 100;
