@@ -15,8 +15,9 @@ int main(int argc, char const *argv[]) {
                 strcpy(name, argv[1]);
                 age = atoi(argv[2]);
         } else {
-                puts("Uso: ./gtp8 name age");
-                exit(0);
+                cout << "Ingese el nombre y la edad de la persona: " << endl;
+                cin >> name;
+                cin >> age;
         }
 
         if(validate(age)) {
