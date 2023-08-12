@@ -1,9 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include<iostream>
 
 using namespace std;
 
-int get_score(int data[]);
+int get_score(int data[]) {
+        return data[0]*3 + data[1];
+}
 
 int main(int argc, char const *argv[]) {
         int data[3];
@@ -13,15 +14,13 @@ int main(int argc, char const *argv[]) {
                 data[1] = atoi(argv[2]);
                 data[2] = atoi(argv[3]);
         } else {
-                printf("Ingrese la cantidad de partidos ganador, empatados y perdidos: ");
-                scanf("%d %d %d", &data[0], &data[1], &data[2]);
+                cout << "Ingrese la cantidad de partidos ganador, empatados y perdidos: ";
+                cin >> data[0];
+                cin >> data[1];
+                cin >> data[2];
         }
 
-        printf("El puntaje del equipo es: %d\n", get_score(data));
+        cout << "El puntaje del equipo es: " << get_score(data) << endl;
         
         return 0;
-}
-
-int get_score(int data[]) {
-        return data[0]*3 + data[1];
 }
