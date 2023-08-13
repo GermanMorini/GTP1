@@ -11,18 +11,13 @@ void validate(int age, char name[]) {
         }
 }
 
-int main(int argc, char const *argv[]) {
+int main() {
         char name[20];
         int age;
 
-        if (argc >= 3) {
-                strcpy(name, argv[1]);
-                age = atoi(argv[2]);
-        } else {
-                cout << "Ingese el nombre y la edad de la persona: " << endl;
-                cin >> name;
-                cin >> age;
-        }
+        cout << "Ingese el nombre y la edad de la persona: " << endl;
+        cin >> name;
+        cin >> age;
 
         validate(age, name);
 

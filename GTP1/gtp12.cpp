@@ -1,11 +1,11 @@
 #include<iostream>
-#include<stdlib.h>
 #include<cmath>
 #include<time.h>
 #include<unistd.h>
 
 using namespace std;
 
+// "__attribute__ es parte del compilador GCC, no del lenguaje C/C++"
 void set_seed() __attribute__((constructor));
 void set_seed() { srand(time(NULL)); }
 

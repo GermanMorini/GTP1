@@ -2,12 +2,21 @@
 
 using namespace std;
 
+// float compare(float a, float b) {
+//         if (a >= b) {
+//                 return a;
+//         } else {
+//                 return b;
+//         }
+// }
+
 float compare(float a, float b) {
-        if (a >= b) {
-                return a;
-        } else {
-                return b;
-        }
+        int _a = 0, _b = 0;
+
+        _a += (a >= b);
+        _b += (a < b);
+
+        return _a*a + _b*b;
 }
 
 int main() {

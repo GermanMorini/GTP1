@@ -5,17 +5,12 @@
 
 using namespace std;
 
-int main(int argc, char const *argv[]) {
+int main() {
         float wh, s;
 
-        if(argc == 3) {
-                wh = atof(argv[1]);
-                s = atof(argv[2]);
-        } else {
-                puts("Ingrese la cantidad de horas trabajadas y la ganacia por hora: ");
-                cin >> wh;
-                cin >> s;
-        }
+        puts("Ingrese la cantidad de horas trabajadas y la ganacia por hora: ");
+        cin >> wh;
+        cin >> s;
 
         puts("La ganancia por hora es: ");
         cout << wh*s << endl;
