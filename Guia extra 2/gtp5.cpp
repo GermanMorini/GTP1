@@ -18,8 +18,6 @@ int main() {
 
         int age[l];
 
-
-
         for(int i = 0; i < 10; i++) {
                 cout << "Ingrese la edad de la persona " << i+1 << ": ";
                 cin >> age[i];

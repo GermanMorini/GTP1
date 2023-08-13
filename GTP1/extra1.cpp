@@ -24,25 +24,20 @@ int get_result() {
 void print_results(int n) {
         cout << "J K M" << endl << "-----" << endl;
 
-        loop:
-        if(n > 0) {
+        do {
                 randomize();
                 cout << r1 << " " << r2 << " " << r3 << endl;
                 count += get_result();
                 n--;
-                goto loop;
         }
+        while(n > 0);
 
         cout << "La cantidad de problemas resueltos es: " << count << endl;
 }
 
-int main(int argc, char const *argv[]) {
-        if(argc == 2) {
-                n = atoi(argv[1]);
-        } else {
-                cout << "Ingrese la cantidad de problemas a resolver: ";
-                cin >> n;
-        }
+int main() {
+        cout << "Ingrese la cantidad de problemas a resolver: ";
+        cin >> n;
 
         cout << "La votación comenzó..." << endl;
         sleep(3);

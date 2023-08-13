@@ -1,12 +1,23 @@
 #include<iostream>
 
-// Inclueye el archivo de definición de funciones
+// Incluye el archivo de definición de funciones
 // Se usan "" para que el compilador los busque en el directorio actual, o
 // sino en los directorios especificados en la configuración
-#include "gtp13_1.h"
+//#include "gtp13_1.h"
+// NOTA: no lo incluyo porque se complica demasiado el código
 
 using namespace std;
 
+void dist_conversion(float n) {
+        cout << n << " cm -> " << n/100 << " m\n";
+        cout << n << " cm -> " << n*50/127 << " in\n";
+}
+
+void tmp_conversion(float n) {
+        cout << n << " ºC -> " << n*9/5 + 32 << " ºF\n";
+}
+
+typedef void (*ConvOp)(float);
 ConvOp parse_opt(int o) {
         switch(o) {
                 case 1:
@@ -22,28 +33,21 @@ ConvOp parse_opt(int o) {
 }
 
 int main() {
-        int opt = -1;
-        float val = -1;
+        int opt;
+        float val;
+        ConvOp op;
 
-        option:
-        cout << "1 – Conversión de distancia\n2 – Conversión de temperatura\n3 – Salir\n";
-        cin >> opt;
+        do {
+                cout << "1 – Conversión de distancia\n2 – Conversión de temperatura\n3 – Salir\n";
+                cin >> opt;
+        } while(opt < 1 or opt > 3);
+        
+        op = parse_opt(opt);
 
-        ConvOp op = parse_opt(opt);
-
-        if(op == NULL) {
-                cout << "Vuelva a ingresar el valor de opción\n";
-                goto option;
-        }
-
-        parsing:
-        cout << "Ingrese el valor a transformar: ";
-        cin >> val;
-
-        if(val < 0) {
-                cout << "Ingrese un valor positivo\n";
-                goto parsing;
-        }
+        do {
+                cout << "Ingrese el valor a transformar: ";
+                cin >> val;
+        } while(val < 0);
         
         op(val);
 

@@ -1,5 +1,4 @@
 #include<iostream>
-#include<stdlib.h>
 #include<cmath>
 
 using namespace std;
@@ -19,7 +18,7 @@ int main() {
 
         if (n < 0) {
                 cout << "Se debe ingresar un número positivo!";
-                exit(2);
+                exit(1);
         }
 
         reverse(n);
