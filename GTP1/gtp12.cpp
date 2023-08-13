@@ -6,25 +6,32 @@
 
 using namespace std;
 
-int get_random() {
-        srand(time(NULL));
+void set_seed() __attribute__((constructor));
+void set_seed() { srand(time(NULL)); }
 
+typedef struct {
+        int d1;
+        int d2;
+} Dices;
+
+int get_random() {
         return 1 + rand()%6;
 }
 
-int main(int argc, char *argv[]) {
-        int d1, d2, sum;
+int main() {
+        int sum;
+        Dices dices;
 
         while(true) {
                 cout << "Arrojando dados..." << endl;
                 cout << "" << endl;
                 sleep(1);
 
-                d1 = get_random();
-                d2 = get_random();
-                sum = d1 + d2;
+                dices.d1 = get_random();
+                dices.d2 = get_random();
+                sum = dices.d1 + dices.d2;
 
-                cout << "Dado 1: " << d1 << endl << "Dado 2: " << d2 << endl << "Suma: " << sum << endl;
+                cout << "Dado 1: " << dices.d1 << endl << "Dado 2: " << dices.d2 << endl << "Suma: " << sum << endl;
                 cout << "" << endl;
 
                 if (sum == 7 or sum == 11) {

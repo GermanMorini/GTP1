@@ -12,3 +12,5 @@ void dist_conversion(float n) {
 void tmp_conversion(float n) {
         cout << n << " ºC -> " << n*9/5 + 32 << " ºF\n";
 }
+
+// NOTA: este archivo se debe compilar junto con el principal

@@ -1,7 +1,7 @@
 #include<iostream>
 
 // Define valores en tiempo de compilacion
-#define VAL = 1000
+#define VAL 1000
 
 using namespace std;
 

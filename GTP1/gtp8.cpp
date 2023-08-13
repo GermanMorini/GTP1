@@ -11,7 +11,7 @@ void reverse(int n) {
         }
 }
 
-int main(int argc, char *argv[]) {
+int main() {
         int n;
 
         cout << "Ingrese un número entero positivo: " << endl;

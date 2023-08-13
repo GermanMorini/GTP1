@@ -10,7 +10,7 @@ void get_Mname(char name1[], int age1, char name2[], int age2) {
         }
 }
 
-int main(int argc, char *argv[]) {
+int main() {
         char name1[20], name2[20];
         int age1, age2;
         

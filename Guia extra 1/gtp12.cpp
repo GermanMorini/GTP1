@@ -18,7 +18,7 @@ int main() {
 
         if(!validate(n)) {
                 puts("Debe ser un número distinto de 0!");
-                exit(2);
+                exit(1);
         }
 
         determ(n);

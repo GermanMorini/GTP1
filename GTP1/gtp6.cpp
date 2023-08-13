@@ -11,7 +11,7 @@ void convert(int &h, int &m, int &s) {
         m = m%60;
 }
 
-int main(int argc, char *argv[]) {
+int main() {
         int h, m, s;
 
         cout << "Ingrese las horas: ";
