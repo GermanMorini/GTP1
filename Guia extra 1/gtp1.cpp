@@ -6,7 +6,6 @@ float get_distance(float vel, float time) {
         return vel * time;
 }
 
-// "const" impide que su valor se modifique
 int main() {
         float vel ,time;
 
