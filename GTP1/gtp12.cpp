@@ -14,8 +14,8 @@ typedef struct {
         int d2;
 } Dice;
 
-int get_random() {
-        return 1 + rand()%6;
+void throw_dice(int &d) {
+        d = 1 + rand()%6;
 }
 
 int main() {
@@ -27,22 +27,22 @@ int main() {
                 cout << "" << endl;
                 sleep(1);
 
-                dice.d1 = get_random();
-                dice.d2 = get_random();
+                throw_dice(dice.d1);
+                throw_dice(dice.d2);
                 sum = dice.d1 + dice.d2;
 
-                cout << "Dado 1: " << dice.d1 << endl << "Dado 2: " << dice.d2 << endl << "Suma: " << sum << endl;
+                cout << "Dado 1: " << dice.d1 << endl << "Dado 2: " << dice.d2 << endl << "Suma: " << sum;
                 cout << "" << endl;
 
                 if (sum == 7 or sum == 11) {
-                        cout << "Ganaste!! :>" << endl;
-                        exit(0);
+                        puts("\nGanaste!! :>");
+                        return 0;
                 } else if(sum == 2 or sum == 3 or sum == 12) {
-                        cout << "Perdiste :(" << endl;
-                        exit(0);
+                        puts("\nPerdiste :(");
+                        return 0;
                 }
                 
-                cout << "Se sigue el juego!" << endl;
+                cout << "\n\nSe sigue el juego!\n------------------\n";
                 sleep(1);
         }
 }

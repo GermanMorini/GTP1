@@ -11,20 +11,15 @@ using namespace std;
 // }
 
 float compare(float a, float b) {
-        int _a = 0, _b = 0;
-
-        _a += (a >= b);
-        _b += (a < b);
-
-        return _a*a + _b*b;
+        return a*(a >= b) + b*(b > a);
 }
 
 int main() {
         float a, b;
 
-        cout << "Ingrese los valores a comparar: ";
-        cin >> a;
-        cin >> b;
+        cout << "Ingrese los valores a comparar: \n";
+        cout << "1: "; cin >> a;
+        cout << "2: "; cin >> b;
 
         cout << "El mayor de ellos es: " << compare(a, b) << endl;
         
