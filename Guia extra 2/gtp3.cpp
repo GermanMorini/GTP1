@@ -1,5 +1,4 @@
 #include<iostream>
-#include<stdlib.h>
 
 using namespace std;
 
@@ -10,12 +9,11 @@ int sum(int a, int b) {
 int main() {
         int a, b;
 
-        cout << "Ingrese dos valores a y b: ";
+        cout << "Ingrese dos números: ";
         cin >> a;
         cin >> b;
 
-        cout << a << " + " << b << " = " << sum(a,b) << endl;
+        cout << "Su suma es: " << sum(abs(a), abs(b)) << endl;
         
         return 0;
 }
-

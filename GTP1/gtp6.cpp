@@ -4,14 +4,14 @@
 using namespace std;
 
 void convert(int &h, int &m, int &s) {
-        m += floor(s/60);
-        s -= 60*floor(s/60);
+        m += s/60;
+        s = s%60;
 
-        h += floor(m/60);
-        m -= 60*floor(m/60);
+        h += m/60;
+        m = m%60;
 }
 
-int main(int argc, char *argv[]) {
+int main() {
         int h, m, s;
 
         cout << "Ingrese las horas: ";

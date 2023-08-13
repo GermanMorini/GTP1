@@ -10,7 +10,7 @@ float compare(float a, float b) {
         }
 }
 
-int main(int argc, char *argv[]) {
+int main() {
         float a, b;
 
         cout << "Ingrese los valores a comparar: ";
