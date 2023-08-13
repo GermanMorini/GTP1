@@ -12,7 +12,7 @@ void set_seed() { srand(time(NULL)); }
 typedef struct {
         int d1;
         int d2;
-} Dices;
+} Dice;
 
 int get_random() {
         return 1 + rand()%6;
@@ -20,18 +20,18 @@ int get_random() {
 
 int main() {
         int sum;
-        Dices dices;
+        Dice dice;
 
         while(true) {
                 cout << "Arrojando dados..." << endl;
                 cout << "" << endl;
                 sleep(1);
 
-                dices.d1 = get_random();
-                dices.d2 = get_random();
-                sum = dices.d1 + dices.d2;
+                dice.d1 = get_random();
+                dice.d2 = get_random();
+                sum = dice.d1 + dice.d2;
 
-                cout << "Dado 1: " << dices.d1 << endl << "Dado 2: " << dices.d2 << endl << "Suma: " << sum << endl;
+                cout << "Dado 1: " << dice.d1 << endl << "Dado 2: " << dice.d2 << endl << "Suma: " << sum << endl;
                 cout << "" << endl;
 
                 if (sum == 7 or sum == 11) {
