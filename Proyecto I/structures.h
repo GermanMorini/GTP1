@@ -2,7 +2,7 @@
 #define STRUCTURES
 
 typedef enum {
-        malbec, tinto, blanco;
+        malbec, tinto, blanco
 } WineType;
 
 typedef struct {
@@ -10,14 +10,14 @@ typedef struct {
 } Date;
 
 typedef struct {
-        char[20] name;
+        char name[20];
         int phone, DNI;
 } ProviderData;
 
 typedef struct {
         int code;
-        char[20] name;
-        char[20] brand;
+        char name[20];
+        char brand[20];
         Date manufacturing_d;
         WineType type;
         float price;

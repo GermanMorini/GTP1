@@ -32,24 +32,33 @@ ConvOp parse_opt(int o) {
         }
 }
 
-int main() {
+int prompt_opt() {
         int opt;
-        float val;
-        ConvOp op;
 
         do {
                 cout << "1 – Conversión de distancia\n2 – Conversión de temperatura\n3 – Salir\n";
                 cin >> opt;
         } while(opt < 1 or opt > 3);
-        
-        op = parse_opt(opt);
+
+        return opt;
+}
+
+float get_val() {
+        float val;
 
         do {
                 cout << "Ingrese el valor a transformar: ";
                 cin >> val;
         } while(val < 0);
+
+        return val;
+}
+
+int main() {
+        ConvOp op;
         
-        op(val);
+        op = parse_opt(prompt_opt());
+        op(get_val());
 
         return 0;
 }
