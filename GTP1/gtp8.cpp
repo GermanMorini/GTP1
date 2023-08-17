@@ -10,13 +10,6 @@ using namespace std;
 //         }
 // }
 
-int reverse(int n) {
-        if(n > 0) {
-                return n*10 + reverse(n/10);
-        }
-}
-
-
 // void reverse(int n) {
 //         while(n != 0) {
 //                 cout << n%10;
@@ -24,17 +17,17 @@ int reverse(int n) {
 //         }
 // }
 
-// int reverse(int n) {
-//         int rtn = 0;
+int reverse(int n) {
+        int rtn = 0;
 
-//         while(n != 0) {
-//                 rtn *= 10;
-//                 rtn += n%10;
-//                 n /= 10;
-//         }
+        while(n != 0) {
+                rtn *= 10;
+                rtn += n%10;
+                n /= 10;
+        }
 
-//         return rtn;
-// }
+        return rtn;
+}
 
 int main() {
         int n;
