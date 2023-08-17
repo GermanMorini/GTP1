@@ -12,12 +12,11 @@ using namespace std;
 // }
 
 bool isHE(int n) {
-        int d = n;
         bool b = 1;
 
-        while(d != 0) {
-                b *= ((d%10)%2 == 0);
-                d = floor(d/10);
+        while(n != 0) {
+                b *= (n%2 == 0);
+                n /= 10;
         }
 
         return b;

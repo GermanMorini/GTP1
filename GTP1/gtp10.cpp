@@ -12,11 +12,11 @@ using namespace std;
 // }
 
 int sum(int n) {
-        int sum = 0, d = n;
+        int sum = 0;
 
-        while(d != 0) {
-                sum += d%10;
-                d = floor(d/10);
+        while(n != 0) {
+                sum += n%10;
+                n = trunc(n/10);
         }
 
         return sum;

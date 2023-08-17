@@ -6,18 +6,35 @@ using namespace std;
 // void reverse(int n) {
 //         if(n > 0) {
 //                 cout << n%10;
-//                 reverse(floor(n/10));
+//                 reverse(n/10);
 //         }
 // }
 
-void reverse(int n) {
-        int d = n;
-
-        while(d != 0) {
-                cout << d%10;
-                d = floor(d/10);
+int reverse(int n) {
+        if(n > 0) {
+                return n*10 + reverse(n/10);
         }
 }
+
+
+// void reverse(int n) {
+//         while(n != 0) {
+//                 cout << n%10;
+//                 n = floor(n/10);
+//         }
+// }
+
+// int reverse(int n) {
+//         int rtn = 0;
+
+//         while(n != 0) {
+//                 rtn *= 10;
+//                 rtn += n%10;
+//                 n /= 10;
+//         }
+
+//         return rtn;
+// }
 
 int main() {
         int n;
@@ -30,7 +47,7 @@ int main() {
                 return 1;
         }
 
-        reverse(n);
+        cout << reverse(n) << endl;
 
         return 0;
 }
