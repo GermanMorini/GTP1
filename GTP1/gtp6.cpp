@@ -3,27 +3,44 @@
 
 using namespace std;
 
-void convert(int &h, int &m, int &s) {
-        m += s/60;
-        s = s%60;
+typedef struct {
+        int h, m, s;
+} Time;
 
-        h += m/60;
-        m = m%60;
+// void convert(int &h, int &m, int &s) {
+//         m += s/60;
+//         s = s%60;
+
+//         h += m/60;
+//         m = m%60;
+// }
+
+Time convert(Time &time) {
+        Time _t;
+
+        _t.m = time.m + time.s/60;
+        _t.s = time.s%60;
+
+        _t.h = time.h + _t.m/60;
+        _t.m = _t.m%60;
+
+        return _t;
 }
 
 int main() {
         int h, m, s;
+        Time time;
 
         cout << "Ingrese las horas: ";
-        cin >> h;
+        cin >> time.h;
         cout << "Ingrese los minutos: ";
-        cin >> m;
+        cin >> time.m;
         cout << "Ingrese los segundos: ";
-        cin >> s;
+        cin >> time.s;
 
-        convert(h, m, s);
+        time = convert(time);
 
-        cout << "El resultado es: " << h << ":" << m << ":" << s << endl;
+        cout << "El resultado es: " << time.h << ":" << time.m << ":" << time.s << endl;
         
 	return 0;
 }

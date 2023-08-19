@@ -10,12 +10,16 @@ typedef struct {
 
 // Se usa const porque si se pasan por valor se genera una copia de las mismas
 // lo que no es eficiente
+// Person get_older(const Person &p1, const Person &p2) {
+//         if(p1.age >= p2.age) {
+//                 return p1;
+//         } else {
+//                 return p2;
+//         }
+// }
+
 Person get_older(const Person &p1, const Person &p2) {
-        if(p1.age >= p2.age) {
-                return p1;
-        } else {
-                return p2;
-        }
+        return p1.age >= p2.age ? p1 : p2;
 }
 
 int main() {

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ ! -d "./exec" ]; then
+	mkdir "./exec"
+fi
+
+g++ -o "./exec/${1%.*}" $* && "./exec/${1%.*}"

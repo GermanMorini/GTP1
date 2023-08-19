@@ -3,20 +3,35 @@
 
 using namespace std;
 
-int get_lenght(int n) {
-        if (n != 0) {
-                return 1+get_lenght(floor(n/10));
-        } else {
-                return 0;
+int reverse(int n) {
+        int rtn = 0;
+
+        while(n != 0) {
+                rtn *= 10;
+                rtn += n%10;
+                n /= 10;
         }
+
+        return rtn;
 }
 
 bool isPal(int n) {
-        return true;
+        return n == reverse(n);
 }
 
 int main() {
+        int n;
 
-        
+        cout << "Ingrese un número: ";
+        cin >> n;
+
+        // if(isPal(n)) {
+        //         cout << "El número es capicúa!\n";
+        // } else {
+        //         cout << "El número NO es capicúa!\n";
+        // }
+
+        cout << "El número " << (isPal(n) ? "es capicúa!\n" : "NO es capicúa!\n");
+
         return 0;
 }
