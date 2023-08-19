@@ -17,8 +17,8 @@ void tmp_conversion(float n) {
         cout << n << " ºC -> " << n*9/5 + 32 << " ºF\n";
 }
 
-typedef void (*ConvOp)(float);
-ConvOp parse_opt(int o) {
+typedef void (*Operation)(float);
+Operation parse_opt(int o) {
         switch(o) {
                 case 1:
                         return dist_conversion;
@@ -47,7 +47,7 @@ float get_val() {
         float val;
 
         do {
-                cout << "Ingrese el valor a transformar: ";
+                cout << "Ingrese el valor a convertir: ";
                 cin >> val;
         } while(val < 0);
 
@@ -55,7 +55,7 @@ float get_val() {
 }
 
 int main() {
-        ConvOp op;
+        Operation op;
         
         op = parse_opt(prompt_opt());
         op(get_val());

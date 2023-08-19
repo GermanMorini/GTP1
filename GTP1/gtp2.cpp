@@ -12,14 +12,18 @@ using namespace std;
 //         }
 // }
 
+// char sign(int n) {
+//         int c = 0;
+
+//         c += 78*(n < 0);
+//         c += 67*(n == 0);
+//         c += 80*(n > 0);
+
+//         return (char) c;
+// }
+
 char sign(int n) {
-        int c = 0;
-
-        c += 78*(n < 0);
-        c += 67*(n == 0);
-        c += 80*(n > 0);
-
-        return (char) c;
+        return 78*(n < 0) + 67*(n == 0) + 80*(n > 0);
 }
 
 int main() {

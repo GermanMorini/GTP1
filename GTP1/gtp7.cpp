@@ -29,11 +29,13 @@ int main() {
         cout << "Ingrese el valor a calcular: ";
         cin >> n;
 
-        if(isTriangular(n)) {
-                cout << "El valor es triangular!" << endl;
-        } else {
-                cout << "El valor NO es triangular!" << endl;
-        }
+        // if(isTriangular(n)) {
+        //         cout << "El valor es triangular!" << endl;
+        // } else {
+        //         cout << "El valor NO es triangular!" << endl;
+        // }
+
+        cout << "El valor " << (isTriangular(n) ? "es triangular!\n" : "NO es triangular!\n");
 
         return 0;
 }

@@ -25,11 +25,13 @@ int main() {
         cout << "Ingrese un número: ";
         cin >> n;
 
-        if(isPal(n)) {
-                cout << "El número es capicúa!\n";
-        } else {
-                cout << "El número NO es capicúa!\n";
-        }
+        // if(isPal(n)) {
+        //         cout << "El número es capicúa!\n";
+        // } else {
+        //         cout << "El número NO es capicúa!\n";
+        // }
+
+        cout << "El número " << (isPal(n) ? "es capicúa!\n" : "NO es capicúa!\n");
 
         return 0;
 }

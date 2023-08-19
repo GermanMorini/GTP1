@@ -25,7 +25,7 @@ int init_game(Player pl[]) {
 
         while(true) {
                 for(int i = 0; i < PLAYERS; i++) {
-                        cout << "Juega el jugador "<< pl[i].name <<"\nArrojando dados...\n\n" << endl;
+                        cout << pl[i].name <<" arroja los dados...\n\n";
                         sleep(1);
 
                         roll_dice(pl[i].d1);
@@ -42,7 +42,7 @@ int init_game(Player pl[]) {
                                 return 0;
                         }
 
-                        cout << "\n\nSe sigue el juego!\n------------------\n";
+                        cout << "\n\nSe sigue el juego!\n------------------\n\n";
                         sleep(1);
                 }
         }

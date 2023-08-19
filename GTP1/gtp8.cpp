@@ -32,13 +32,10 @@ int reverse(int n) {
 int main() {
         int n;
 
-        cout << "Ingrese un número entero positivo: " << endl;
-        cin >> n;
-
-        if (n < 0) {
-                cout << "Se debe ingresar un número positivo!";
-                return 1;
-        }
+        do {
+                cout << "Ingrese un número entero positivo: \n";
+                cin >> n;
+        } while(n < 0);
 
         cout << reverse(n) << endl;
 
