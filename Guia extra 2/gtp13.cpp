@@ -24,9 +24,9 @@ const Operation op[OPERATIONS] = {
         tmp_conversion
 };
 
-Operation parse_opt(int o) {
-        return op[o*(o > 0 and o < OPERATIONS)];
-}
+// Operation parse_opt(int o) {
+//         return op[o*(o > 0 and o < OPERATIONS)];
+// }
 
 // Operation parse_opt(int o) {
 //         switch(o) {
@@ -42,7 +42,7 @@ Operation parse_opt(int o) {
 //         }
 // }
 
-int prompt_opt() {
+int prompt_index() {
         int opt;
 
         do {
@@ -55,23 +55,20 @@ int prompt_opt() {
         return opt;
 }
 
-float get_val() {
+float prompt_val() {
         float val;
 
         do {
-                cout << "Ingrese el valor a convertir: ";
+                cout << "----------\nIngrese el valor a convertir: \n\n> ";
                 cin >> val;
-                cout << "\n\n";
+                cout << "\nResultados: \n\n";
         } while(val < 0);
 
         return val;
 }
 
 int main() {
-        Operation op;
-        
-        op = parse_opt(prompt_opt());
-        op(get_val());
+        op[prompt_index()](prompt_val());
 
         return 0;
 }
