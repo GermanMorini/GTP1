@@ -2,6 +2,15 @@
 
 using namespace std;
 
+bool validate(int n) {
+        return n >= 0 and n <= 10;
+}
+
+bool isDefficent(int n) { return n >= 0 and n <= 3; }
+bool isRegular(int n) { return n > 3 and n <= 5; }
+bool isGood(int n) { return n > 5 and n <= 8; }
+bool isExcelent(int n) { return n > 8 and n <= 10; }
+
 int main() {
         int n, def = 0, reg = 0, gd = 0, exc = 0;
 
@@ -14,10 +23,18 @@ int main() {
                 cout << "Ingrese la nota del alumno " << i+1 << ": ";
                 cin >> grades[i];
 
-                def += (grades[i] <= 3);
-                reg += (grades[i] > 3 and grades[i] <= 5);
-                gd += (grades[i] > 5 and grades[i] <= 8);
-                exc += (grades[i] > 8);
+                // if(not validate(grades[i])) {
+                //         cout << "\nLa nota debe ser un valor entre 0 y 10!\n\n";
+                //         i--;
+                //         continue;
+                // }
+
+                i -= (not validate(grades[i]));
+
+                def += isDefficent(grades[i]);
+                reg += isRegular(grades[i]);
+                gd += isGood(grades[i]);
+                exc += isExcelent(grades[i]);
         }
 
         cout << "\nDeficientes: " << def;

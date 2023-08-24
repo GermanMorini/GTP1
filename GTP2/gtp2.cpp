@@ -2,9 +2,16 @@
 
 using namespace std;
 
+// void fill(int n[], int b, int l) {
+//         for(int i = 0; i < l; i++) {
+//                 n[i] = b*(i+1);
+//         }
+// }
+
 void fill(int n[], int b, int l) {
-        for(int i = 0; i < l; i++) {
-                n[i] = b*(i+1);
+        if(l > 0) {
+                n[l-1] = b*(l);
+                fill(n, b, l-1);
         }
 }
 
@@ -29,7 +36,7 @@ int main() {
 
         fill(numbers, b, l);
 
-        print(numbers,);
+        print(numbers, l);
 
         return 0;
 }

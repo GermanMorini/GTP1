@@ -1,29 +1,29 @@
 #include<iostream>
+#define SIZE 5
 
 using namespace std;
 
 float avg(int n[], int l) {
-        float avg = 0;
-
-        for(int i = 0; i < l; i++) {
-                avg += n[i];
-                cout << avg << "\n";
+        if(l > 0) {
+                return n[l-1]*1.0/SIZE + avg(n, l-1);
+        } else {
+                return 0;
         }
+}
 
-        return avg/l;
+void prompt_vals(int ns[]) {
+        for(short i = 0; i < SIZE; i++) {
+                cout << "Ingrese un valor (" << SIZE - i << " restantes): ";
+                cin >> ns[i];
+        }
 }
 
 int main() {
-        int i = 5, ns[5];
+        int ns[SIZE];
 
-        while(i > 0) {
-                cout << "Ingrese un valor (" << i << " restantes): ";
-                cin >> ns[i-1];
-
-                i--;
-        }
-
-        cout << "La media aritmética es: " << avg(ns, 5) << "\n";
+        prompt_vals(ns);
+        
+        cout << "La media aritmética es: " << avg(ns, SIZE) << "\n";
 
         return 0;
 }
