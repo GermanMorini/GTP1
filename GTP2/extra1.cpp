@@ -2,16 +2,8 @@
 
 using namespace std;
 
-void prompt_notes(short notes[], short l) {
-        for(short i = 0; i < l; i++) {
-                cout << "Ingrese una nota para el alumno " << i+1 << ": ";
-                cin >> notes[i];
-        }
-}
-
 void grade(short notes[], short l, short &aprv) {
         short ap = 0, rep = 0, top = -1;
-        float ap_avg = 0, rep_avg = 0;
 
         for(short i = 0; i < l; i++) {
                 ap += (notes[i] >= 4);
@@ -19,14 +11,32 @@ void grade(short notes[], short l, short &aprv) {
                 top = top*(top >= notes[i]) + notes[i]*(top < notes[i]);
         }
 
-        ap_avg = ap*1.0/l;
-        rep_avg = rep*1.0/l;
-
         cout << "\n\nResultados: \n";
-        cout << "Cantidad de aprobados: " << ap << " (" << 100*ap_avg << "%)\n";
-        cout << "Cantidad de reprobados: " << rep << " (" << 100*rep_avg << "%)\n";
+        cout << "Cantidad de aprobados: " << ap << " (" << (100.0/l)*ap << "%)\n";
+        cout << "Cantidad de reprobados: " << rep << " (" << (100.0/l)*rep << "%)\n";
         cout << "La nota mayor: " << top << "\n";
 }
+
+bool validate(int grade) {
+        return grade >= 1 and grade <= 10;
+}
+
+void prompt_notes(short notes[], short l) {
+        for(short i = 0; i < l; i++) {
+                cout << "Ingrese una nota para el alumno " << i+1 << ": ";
+                cin >> notes[i];
+
+                i -= (!validate(notes[i]));
+        }
+}
+
+// void prompt_notes(short notes[], short l) {
+//         if(l > 0) {
+//                 cout << "Ingrese una nota (" << l << " restantes): ";
+//                 cin >> notes[l-1];
+//                 prompt_notes(notes, l-1);
+//         }
+// }
 
 int main() {
         short aprv = 0, repv = 0, N;
