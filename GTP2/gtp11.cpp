@@ -4,7 +4,9 @@
 using namespace std;
 
 float eval(float coef[], short g, short x) {
-        if(g >= 0) { return coef[g] * pow(x, g) + eval(coef, g-1, x);}
+        if(g >= 0) {
+                return coef[g] * pow(x, g) + eval(coef, g-1, x);
+        }
         
         return 0;
 }

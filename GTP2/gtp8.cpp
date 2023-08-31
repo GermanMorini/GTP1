@@ -1,31 +1,49 @@
 #include<iostream>
 #include<string.h>
+#define COUNT 10
 
 using namespace std;
 
-int main() {
-        const int SIZE = 20;
-        char name[SIZE], name_tmp[SIZE];
-        int age = 0 , age_tmp;
+int copy_name(string names[], string n[], int ages[]) {
+        int k = 0;
 
-        cout << "Ingrese el nombre y edad de los alumnos: \n\n";
-
-        for(int i = 0; i < 10; i++) {
-                cout << "Nombre del alumno " << i+1 << ": ";
-                cin >> name_tmp;
-
-                cout << "Ingrese la edad: ";
-                cin >> age_tmp;
-
-                age += age_tmp*(i == 0);
-
-                if(age_tmp > age) {
-                        cout << "ADENTRO";
-                        strcpy(name, name_tmp);
+        for(int j = 0; j < COUNT; j++) {
+                if(ages[j] >= 18) {
+                        names[k] = n[j];
+                        k++;
                 }
         }
 
-        cout << "El alumno de mayor edad es: " << name << "\n";
+        return k;
+}
+
+void print(string n[], int l) {
+        cout << "\n\nLos alumnos de mayor edad son: \n";
+
+        for(int i = 0; i < l-1; i++) {
+                cout << n[i] << ", ";
+        }
+
+        cout << n[l-1] << "\n";
+}
+
+int main() {
+        string name_tmp[COUNT], names[COUNT];
+        int ages[COUNT], count;
+
+        cout << "Ingrese el nombre y edad de los alumnos: \n\n";
+
+        for(int i = 0; i < COUNT; i++) {
+                cout << "Nombre del alumno " << i+1 << ": ";
+                cin >> name_tmp[i];
+
+                cout << "Ingrese la edad: ";
+                cin >> ages[i];
+        }
+        
+        count = copy_name(names, name_tmp, ages);
+
+        print(names, count);
 
         return 0;
 }
