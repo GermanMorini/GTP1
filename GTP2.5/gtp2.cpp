@@ -37,8 +37,10 @@ int main() {
         string names[SIZE], data[SIZE];
         int ages[SIZE];
 
-        input(names, data, ages);
+        input(names, ages);
         
+        parse(names, data, ages);
+
         print(data);
 
         return 0;
