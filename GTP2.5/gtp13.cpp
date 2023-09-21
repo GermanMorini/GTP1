@@ -18,6 +18,20 @@ int calculate(int matrix[20][20], int m, int n, int i, int j) {
         return total;
 }
 
+// int calculate(int matrix[20][20], int m, int n, int i, int j) {
+//         int total = 0;
+              
+//         for(int k = j-1; k <= j+1; k++) {
+//                 total += matrix[i-1][k]*(i-1 >= 0 && i-1 < m && k >= 0 && k < n);
+//                 total += matrix[i+1][k]*(i+1 >= 0 && i+1 < m && k >= 0 && k < n);
+//         }
+
+//         total += matrix[i][j-1]*(i >= 0 && i < m && j-1 >= 0 && j-1 < n);
+//         total += matrix[i][j+1]*(i >= 0 && i < m && j+1 >= 0 && j+1 < n);
+
+//         return total;
+// }
+
 void input(int matrix[20][20], int m, int n) {
         cout << "Ingrese los valores de la matriz: \n\n";
 
@@ -28,8 +42,7 @@ void input(int matrix[20][20], int m, int n) {
                         cin >> matrix[i][j];
                 }
                 cout << "\n";
-        }
-        
+        }       
 }
 
 int main() {
@@ -59,7 +72,6 @@ int main() {
         cin >> i;
         cin >> j;
 
-        //sum = calculate(matrix, 10, 10, 9, 9);
         sum = calculate(matrix, m, n, i, j);
 
         cout << "La suma de los elementos adyacentes a la posición (" << i << "," << j << ") es: " << sum << "\n";
