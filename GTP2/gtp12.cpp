@@ -48,16 +48,6 @@ void bubbl_sort(int n[]) {
         }
 }
 
-// void bubbl_sort(int n[]) {
-//         for(short i = 0; i < 3; i++) {
-//                 if(n[i] > n[i+1]) {
-
-//                 }
-
-//                 i = i%3;
-//         }
-// }
-
 int main() {
         int n[] = {4,2,3,1};
 

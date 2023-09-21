@@ -1,8 +1,3 @@
 .vscode
-GTP1/exec/
-GTP2/exec/
-GTP2.5/exec/
-Guia extra 1/exec/
-Guia extra 2/exec/
-Guia extra 3/exec/
 changes.txt
+*/exec/

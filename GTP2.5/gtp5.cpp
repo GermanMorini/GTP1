@@ -10,8 +10,9 @@ void sort(string name[], int age[]) {
                 b = 0;
         
                 for(int i = 0; i < 4; i++) {
-                        // .at(0) retorna el primer caracter, e (int) lo convierte a ASCII
-                        if((int) name[i].at(0) > (int) name[i+1].at(0)) {
+                        // .at(0) retorna el primer caracter, (int) lo convierte a ASCII
+                        //if((int) name[i].at(0) > (int) name[i+1].at(0)) {
+                        if(name[i] > name[i+1]) {
                                 b = 1;
 
                                 tmp_n = name[i];
