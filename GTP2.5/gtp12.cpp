@@ -16,6 +16,7 @@ int total_income(int revenue[3][12], int line_rev[], int vehicle_rev[]) {
         return total;
 }
 
+// El coche que más recaudó
 int get_best(int vect[]) {
         int rtn = 0;
 

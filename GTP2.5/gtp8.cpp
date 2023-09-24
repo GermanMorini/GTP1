@@ -9,11 +9,11 @@ int deter(int v1[], int v2[]) {
 int main() {
         int v1[2], v2[2];
 
-        cout << "Ingrese los coeficientes del vector 1: \n";
+        cout << "Ingrese los coeficientes de la fila 1: \n";
         cin >> v1[0];
         cin >> v1[1];
         
-        cout << "Ingrese los coeficientes del vector 2: \n";
+        cout << "Ingrese los coeficientes de la fila 2: \n";
         cin >> v2[0];
         cin >> v2[1];
 
