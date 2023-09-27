@@ -24,7 +24,7 @@ void input(string names[], int ages[]) {
         }
 }
 
-void print(string data[]) {
+void print_data(string data[]) {
         cout << "Las personas que tienen 18, 20 o 22 años son:\n";
 
         for(short i = 0; i < 6; i++) {
@@ -42,7 +42,7 @@ int main() {
         
         parse(names, data, ages);
 
-        print(data);
+        print_data(data);
 
         return 0;
 }

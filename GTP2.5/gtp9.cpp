@@ -12,16 +12,16 @@ void input(int matrix[30][30], int SIZE) {
 }
 
 int sum(int matrix[30][30], int SIZE) {
-        int sum = 0;
+        int rtn = 0;
 
         for(int i = 0; i < SIZE; i++) {
                 for(int j = 1+i; j < SIZE; j++) {
-                        sum += matrix[i][j];
-                        sum -= matrix[SIZE-1-i][SIZE-1-j];
+                        rtn += matrix[i][j];
+                        rtn -= matrix[SIZE-1-i][SIZE-1-j];
                 }
         }
 
-        return sum;
+        return rtn;
 }
 
 int main() {

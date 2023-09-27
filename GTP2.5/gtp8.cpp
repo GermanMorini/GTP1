@@ -2,22 +2,22 @@
 
 using namespace std;
 
-int deter(int v1[], int v2[]) {
-        return (v1[0]*v2[1]) - (v1[1]*v2[0]);
+int deter(int m[2][2]) {
+        return (m[0][0]*m[1][1]) - (m[0][1]*m[1][0]);
 }
 
 int main() {
-        int v1[2], v2[2];
+        int m[2][2];
 
         cout << "Ingrese los coeficientes de la fila 1: \n";
-        cin >> v1[0];
-        cin >> v1[1];
+        cin >> m[0][0];
+        cin >> m[0][1];
         
         cout << "Ingrese los coeficientes de la fila 2: \n";
-        cin >> v2[0];
-        cin >> v2[1];
+        cin >> m[1][0];
+        cin >> m[1][1];
 
-        cout << "El determinante es: " << deter(v1, v2) << "\n";
+        cout << "El determinante es: " << deter(m) << "\n";
 
         return 0;
 }

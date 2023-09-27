@@ -16,7 +16,7 @@ bool is_magic(int matrix[20][20], int SIZE) {
                         sum1 += matrix[i][j];
                         sum2 += matrix[j][i];
                         sum3 += matrix[j][j];
-                        sum4 += matrix[SIZE-j-1][SIZE-j-1];
+                        sum4 += matrix[j][SIZE-j-1];
                 }
 
                 // ¬(P ∧ Q ∧ R) = ¬P ∨ ¬Q ∨ ¬R

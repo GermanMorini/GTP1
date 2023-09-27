@@ -54,21 +54,23 @@
 		// Print matrix
 		"prefix": "pm",
 		"body": [
-			"void print_matrix(int matrix[$1][$2], int FILAS, int COLUMNAS) {",
+			"void ${1:print_matrix}(${2:int} matrix[$3][$4], int FILAS, int COLUMNAS) {",
 			"\tfor (short i = 0; i < FILAS; i++) {",
 			"\t\tfor (short j = 0; j < COLUMNAS; j++) {",
-			"\t\t\tcout << matrix[i][j] << \" \";\n\t\t}",
-			"\t\tcout << \"\\n\";\n\t}\n}"
+			"\t\t\tcout << matrix[i][j] << \"\\t\";\n\t\t}",
+			"\t\tcout << \"\\n\";\n\t}\n\tcout << \"\\n\";",
+			"}"
 		]
 	},
 	"p9": {
 		// Print vector
 		"prefix": "pv",
 		"body": [
-			"void print_vect(int v[], int LARGO) {",
+			"void ${1:print_vect}(${2:int} v[], int LARGO) {",
 			"\tfor (short i = 0; i < LARGO; i++) {",
 			"\t\tcout << v[i] << \" \";\n\t}",
-			"\tcout << \"\\n\";\n}",
+			"\tcout << \"\\n\\n\";",
+			"}"
 		]
 	},
 	"p5": {
@@ -89,7 +91,7 @@
 		"prefix": "rmm",
 		"body": [
 			"#include<time.h>",
-			"void random_matrix(int matrix[$1][$2], int FILAS, int COLUMNAS, int MAX, int MIN) {",
+			"void random_matrix(int matrix[$1][$2], int FILAS, int COLUMNAS, int MIN, int MAX) {",
 			"\tsrand(time(NULL));\n",
 			"\tfor (short i = 0; i < FILAS; i++) {",
 			"\t\tfor (short j = 0; j < COLUMNAS; j++) {",
@@ -114,7 +116,7 @@
 		"prefix": "rvv",
 		"body": [
 			"#include<time.h>",
-			"void random_vect(int v[], int LARGO, int MAX, int MIN) {",
+			"void random_vect(int v[], int LARGO, int MIN, int MAX) {",
 			"\tsrand(time(NULL));\n",
 			"\tfor (short i = 0; i < LARGO; i++) {",
 			"\t\tv[i] = MIN + rand()%(MAX-MIN);",
