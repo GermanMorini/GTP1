@@ -1,33 +1,69 @@
 #include<iostream>
+#include<time.h>
 
 using namespace std;
 
 int main() {
-        int matrix[20][6], sum = 0;
-        float avg_piso[20], avg_total = 0;
+        // int matrix[20][6] = {
+        //         {5, 1, 0, 0, 3, 2},
+        //         {3, 0, 1, 6, 1, 9},
+        //         {1, 0, 2, 0, 3, 1},
+        //         {1, 2, 5, 9, 2, 1},
+        //         {9, 2, 2, 1, 1, 1},
+        //         {5, 0, 3, 8, 2, 3},
+        //         {2, 5, 9, 4, 7, 1},
+        //         {4, 1, 3, 4, 4, 0},
+        //         {1, 1, 5, 0, 1, 0},
+        //         {2, 5, 9, 4, 0, 2},
+        //         {2, 5, 1, 7, 6, 1},
+        //         {0, 3, 8, 9, 7, 1},
+        //         {0, 1, 9, 4, 3, 0},
+        //         {1, 1, 5, 7, 1, 0},
+        //         {2, 3, 6, 1, 9, 1},
+        //         {7, 1, 4, 0, 9, 2},
+        //         {3, 0, 7, 6, 5, 9},
+        //         {3, 0, 2, 0, 3, 1},
+        //         {2, 5, 7, 1, 2, 1},
+        //         {2, 1, 4, 6, 5, 4}
+        // }, sum = 0;
+        int matrix[20][6] = {
+                {6, 3, 0, 5, 4, 2},
+                {4, 0, 3, 6, 1, 3},
+                {2, 1, 4, 0, 5, 3},
+                {1, 4, 6, 1, 0, 2},
+                {6, 3, 5, 2, 1, 4},
+                {4, 1, 5, 0, 3, 0},
+                {1, 6, 0, 3, 6, 4},
+                {3, 5, 2, 7, 0, 6},
+                {6, 0, 4, 5, 2, 4},
+                {3, 5, 6, 2, 4, 0},
+                {4, 6, 6, 1, 0, 5},
+                {0, 5, 3, 6, 6, 2},
+                {3, 0, 6, 4, 1, 0},
+                {0, 6, 4, 1, 4, 0},
+                {4, 6, 0, 2, 3, 1},
+                {6, 0, 5, 3, 4, 0},
+                {4, 1, 6, 0, 5, 3},
+                {4, 0, 1, 4, 0, 3},
+                {5, 2, 6, 1, 0, 3},
+                {3, 2, 4, 6, 2, 4}
+        }, sum = 0;
+        float avg_piso, avg_total = 0;
 
         for(int i = 0; i < 20; i++) {
-                cout << "\n------(PISO " << i+1 << ")------\n";
-
-                avg_piso[i] = 0;
+                avg_piso = 0;
 
                 for(int j = 0; j < 6; j++) {
-                        cout << "Ingrese la cantidad de habitantes del depto. " << i+1 << "," << j+1 << ": ";
-                        cin >> matrix[i][j];
-
-                        avg_piso[i] += matrix[i][j]*1.0/6;
+                        avg_piso += matrix[i][j]*1.0/6;
                         sum += matrix[i][j];
                 }
 
-                avg_total += avg_piso[i]*1.0/20;
+                avg_total += avg_piso*1.0/20;
+
+                cout << "\nLa cantidad de habitantes promedio del piso" << i+1 << " es: " << avg_piso;
         }
 
         cout << "\nEl total de habitantes es: " << sum << "\n";
-
-        for(int i = 0; i < 20; i++) {
-                cout << "\nLa cantidad de habitantes promedio del piso" << i+1 << " es: " << avg_piso[i];
-        }
-
         cout << "\nEl promedio de habitantes por departamento es: " << avg_total;
 
         return 0;

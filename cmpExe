@@ -1,7 +1,11 @@
 #!/bin/bash
 
-if [ ! -d "./exec" ]; then
-	mkdir "./exec"
-fi
+alias cls=clear
 
-g++ -o "./exec/${1%.*}" $* && "./exec/${1%.*}"
+function cmpExe() {
+        if [ ! -d "./exec" ]; then
+                mkdir "./exec"
+        fi
+
+	g++ -o "./exec/${1%.*}" $* && "./exec/${1%.*}"
+}
