@@ -13,114 +13,124 @@
 	// 	"description": "Log output to console"
 	// }
 	
-	"p1": {
+	"plant": {
 		// Plantilla
 		"prefix": "plant",
 		"body": [
-			"#include<iostream>",
-			"\nusing namespace std;",
-			"\nint main(int argc, char const *argv[]) {",
-			"\t${1:code}",
-			"\treturn 0;",
+			"#include<iostream>\n",
+			"using namespace std;\n",
+			"int main(${1:int argc, char const *argv[]}) {",
+			"	${2://code}",
+			"	return 0;",
 			"}"
 		]
 	},
-	"p2": {
-		"prefix": "void",
+	"func": {
+		"prefix": "func",
 		"body": [
 			"void $1($2) {",
-			"\tfor(int i = 0; i < $3; i++) {",
-			"\t\t$4",
-			"\t}",
+			"	for(int i = 0; i < $3; i++) {",
+			"		${4:for(int j = 0; j < $3; j++) {\\}}",
+			"	}",
 			"}"
 		]
 	},
-	"p3": {
+	"bbls": {
 		// Ordenamiento burbuja mejorado
 		"prefix": "bbls",
 		"body": [
 			"while(b) {",
-			"\tb = 0;\n",
-			"\tfor(int i = 0; i < $1; i++) {",
-			"\t\tif($2) {",
-			"\t\t\ttmp = ",
-			"\t\t\tb = 1;",
-			"\t\t}",
-			"\t}",
+			"	b = 0;\n",
+			"	for(int i = 0; i < $1; i++) {",
+			"		if($2) {",
+			"			tmp = ",
+			"			b = 1;",
+			"		}",
+			"	}",
 			"}"
 		]
 	},
-	"p4": {
+	"prm": {
 		// Print matrix
-		"prefix": "pm",
+		"prefix": "prm",
 		"body": [
 			"void ${1:print_matrix}(${2:int} matrix[$3][$4], int FILAS, int COLUMNAS) {",
-			"\tfor (short i = 0; i < FILAS; i++) {",
-			"\t\tfor (short j = 0; j < COLUMNAS; j++) {",
-			"\t\t\tcout << matrix[i][j] << \"\\t\";\n\t\t}",
-			"\t\tcout << \"\\n\";\n\t}\n\tcout << \"\\n\";",
+			"	for (short i = 0; i < FILAS; i++) {",
+			"		for (short j = 0; j < COLUMNAS; j++) {",
+			"			cout << matrix[i][j] << \"\\t\";",
+			"		}",
+			"		cout << \"\\n\";",
+			"	}",
+			"	cout << \"\\n\";",
 			"}"
 		]
 	},
-	"p9": {
+	"prv": {
 		// Print vector
-		"prefix": "pv",
+		"prefix": "prv",
 		"body": [
 			"void ${1:print_vect}(${2:int} v[], int LARGO) {",
-			"\tfor (short i = 0; i < LARGO; i++) {",
-			"\t\tcout << v[i] << \" \";\n\t}",
-			"\tcout << \"\\n\\n\";",
+			"	for (short i = 0; i < LARGO; i++) {",
+			"		cout << v[i] << \" \";",
+			"	}",
+			"	cout << \"\\n\\n\";",
 			"}"
 		]
 	},
-	"p5": {
+	"rndm": {
 		// Matriz aleatoria
-		"prefix": "rm",
+		"prefix": "rndm",
 		"body": [
 			"#include<time.h>",
 			"void random_matrix(int matrix[$1][$2], int FILAS, int COLUMNAS, int MAX) {",
-			"\tsrand(time(NULL));\n",
-			"\tfor (short i = 0; i < FILAS; i++) {",
-			"\t\tfor (short j = 0; j < COLUMNAS; j++) {",
-			"\t\t\tmatrix[i][j] = MAX - rand()%(2*MAX);",
-			"\t\t}\n\t}\n}"
+			"	srand(time(NULL));\n",
+			"	for (short i = 0; i < FILAS; i++) {",
+			"		for (short j = 0; j < COLUMNAS; j++) {",
+			"			matrix[i][j] = MAX - rand()%(2*MAX);",
+			"		}",
+			"	}",
+			"}"
 		]
 	},
-	"p8": {
+	"rndmm": {
 		// Matriz aleatoria
-		"prefix": "rmm",
+		"prefix": "rndmm",
 		"body": [
 			"#include<time.h>",
 			"void random_matrix(int matrix[$1][$2], int FILAS, int COLUMNAS, int MIN, int MAX) {",
-			"\tsrand(time(NULL));\n",
-			"\tfor (short i = 0; i < FILAS; i++) {",
-			"\t\tfor (short j = 0; j < COLUMNAS; j++) {",
-			"\t\t\tmatrix[i][j] = MIN + rand()%(MAX-MIN);",
-			"\t\t}\n\t}\n}"
+			"	srand(time(NULL));\n",
+			"	for (short i = 0; i < FILAS; i++) {",
+			"		for (short j = 0; j < COLUMNAS; j++) {",
+			"			matrix[i][j] = MIN + rand()%(MAX-MIN);",
+			"		}",
+			"	}",
+			"}"
 		]
 	},
-	"p6": {
+	"rndv": {
 		// Vector aleatorio
-		"prefix": "rv",
+		"prefix": "rndv",
 		"body": [
 			"#include<time.h>",
 			"void random_vect(int v[], int LARGO, int MAX) {",
-			"\tsrand(time(NULL));\n",
-			"\tfor (short i = 0; i < LARGO; i++) {",
-			"\t\tv[i] = MAX - rand()%(2*MAX);",
-			"\t}\n}"
+			"	srand(time(NULL));\n",
+			"	for (short i = 0; i < LARGO; i++) {",
+			"		v[i] = MAX - rand()%(2*MAX);",
+			"	}",
+			"}"
 		]
 	},
-	"p7": {
+	"rndvv": {
 		// Vector aleatorio 
-		"prefix": "rvv",
+		"prefix": "rndvv",
 		"body": [
 			"#include<time.h>",
 			"void random_vect(int v[], int LARGO, int MIN, int MAX) {",
-			"\tsrand(time(NULL));\n",
-			"\tfor (short i = 0; i < LARGO; i++) {",
-			"\t\tv[i] = MIN + rand()%(MAX-MIN);",
-			"\t}\n}"
+			"	srand(time(NULL));\n",
+			"	for (short i = 0; i < LARGO; i++) {",
+			"		v[i] = MIN + rand()%(MAX-MIN);",
+			"	}",
+			"}"
 		]
 	}
 }

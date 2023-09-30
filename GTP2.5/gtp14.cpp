@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int input(int revenue[12][5], int montly_sales[], int branch_sales[]) {
+int input(int revenue[12][5]) {
         int total = 0;
 
         for(int j = 0; j < 5; j++) {
@@ -12,8 +12,6 @@ int input(int revenue[12][5], int montly_sales[], int branch_sales[]) {
                         cout << "Mes " << i+1 << ": ";
                         cin >> revenue[i][j];
 
-                        montly_sales[i] += revenue[i][j];
-                        branch_sales[j] += revenue[i][j];
                         total += revenue[i][j];
                 }
         }
@@ -37,18 +35,30 @@ int main() {
         //         {723, 618, 459, 871, 235}
         // };
         int revenue[12][5]; 
-        int montly_sales[12] = {0,0,0,0,0,0,0,0,0,0,0,0}, branch_sales[5] = {0,0,0,0,0}, total;
+        int montly, branch, total;
 
-        total = input(revenue, montly_sales, branch_sales);
+        total = input(revenue);
 
         cout << "El total recaudado es: " << total << "\n";
 
         for(int i = 0; i < 12; i++) {
-                cout << "El total recaudado en el mes " << i+1 << " es: " << montly_sales[i] << "\n";
-        }
+                montly = 0;
 
+                for(int j = 0; j < 5; j++) {
+                        montly += revenue[i][j];
+                }
+
+                cout << "El total recaudado en el mes " << i+1 << " es: " << montly << "\n";
+        }
+        
         for(int i = 0; i < 5; i++) {
-                cout << "El total recaudado por la sucursal " << i+1 << " es: " << branch_sales[i] << "\n";
+                branch = 0;
+
+                for(int j = 0; j < 12; j++) {
+                        branch += revenue[j][i];
+                }
+
+                cout << "El total recaudado por la sucursal " << i+1 << " es: " << branch << "\n";
         }
 
         return 0;
