@@ -4,23 +4,23 @@
 using namespace std;
 
 bool is_magic(int matrix[20][20], int SIZE) {
-        int sum1, sum2, sum3, sum4;
+        int fila, columna, d_prin, d_sec;
 
         for(short i = 0; i < SIZE; i++) {
-                sum1 = 0;
-                sum2 = 0;
-                sum3 = 0;
-                sum4 = 0;
+                fila = 0;
+                columna = 0;
+                d_prin = 0;
+                d_sec = 0;
 
                 for(short j = 0; j < SIZE; j++) {
-                        sum1 += matrix[i][j];
-                        sum2 += matrix[j][i];
-                        sum3 += matrix[j][j];
-                        sum4 += matrix[j][SIZE-j-1];
+                        fila += matrix[i][j]; // fila
+                        columna += matrix[j][i]; // columna
+                        d_prin += matrix[j][j]; // diagonal principal
+                        d_sec += matrix[j][SIZE-j-1]; // diagonal sec.
                 }
 
                 // ¬(P ∧ Q ∧ R) = ¬P ∨ ¬Q ∨ ¬R
-                if(sum1 != sum2 || sum2 != sum3 || sum3 != sum4) {
+                if(fila != columna || columna != d_prin || d_prin != d_sec) {
                         return false;
                 }
         }

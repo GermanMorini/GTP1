@@ -86,7 +86,7 @@
 			"	srand(time(NULL));\n",
 			"	for (short i = 0; i < FILAS; i++) {",
 			"		for (short j = 0; j < COLUMNAS; j++) {",
-			"			matrix[i][j] = MAX - rand()%(2*MAX);",
+			"			matrix[i][j] = MAX - rand()%(2*MAX+1);",
 			"		}",
 			"	}",
 			"}"
@@ -101,7 +101,7 @@
 			"	srand(time(NULL));\n",
 			"	for (short i = 0; i < FILAS; i++) {",
 			"		for (short j = 0; j < COLUMNAS; j++) {",
-			"			matrix[i][j] = MIN + rand()%(MAX-MIN);",
+			"			matrix[i][j] = MIN + rand()%(MAX-MIN+1);",
 			"		}",
 			"	}",
 			"}"
@@ -115,7 +115,7 @@
 			"void random_vect(int v[], int LARGO, int MAX) {",
 			"	srand(time(NULL));\n",
 			"	for (short i = 0; i < LARGO; i++) {",
-			"		v[i] = MAX - rand()%(2*MAX);",
+			"		v[i] = MAX - rand()%(2*MAX+1);",
 			"	}",
 			"}"
 		]
@@ -128,7 +128,7 @@
 			"void random_vect(int v[], int LARGO, int MIN, int MAX) {",
 			"	srand(time(NULL));\n",
 			"	for (short i = 0; i < LARGO; i++) {",
-			"		v[i] = MIN + rand()%(MAX-MIN);",
+			"		v[i] = MIN + rand()%(MAX-MIN+1);",
 			"	}",
 			"}"
 		]
