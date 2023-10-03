@@ -6,8 +6,6 @@ using namespace std;
 // ------------------ TESTING ----------------------------
 
 void random_matrix(int matrix[20][20], int FILAS, int COLUMNAS, int MIN, int MAX) {
-        srand(time(NULL));
-
         for (short i = 0; i < FILAS; i++) {
                 for (short j = 0; j < COLUMNAS; j++) {
                         matrix[i][j] = MIN + rand()%(MAX+1-MIN);
@@ -59,6 +57,8 @@ void transponer(int matrix[20][20], int &FIL, int &COL) {
 }
 
 int main() {
+        srand(time(NULL));
+
         int matrix[20][20], FIL = 3, COL = 5;
 
         random_matrix(matrix, FIL, COL, 0, 10);

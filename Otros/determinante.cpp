@@ -7,8 +7,6 @@ using namespace std;
 //------------- AYUDA PARA TESTEAR EL CÓDIGO ---------------------------
 
 void random_matrix(float matrix[20][20], int ORDEN, int MIN, int MAX) {
-        srand(time(NULL));
-
         for (short i = 0; i < ORDEN; i++) {
                 for (short j = 0; j < ORDEN; j++) {
                         matrix[i][j] = MIN + rand()%(MAX-MIN);
@@ -68,7 +66,19 @@ Luego se divide el resultado por el producto de todos los escalares que aparecie
 
 void ponchar(float matrix[20][20], int ORDEN, int pivot_i, int pivot_j) {
         for(int m = pivot_i+1; m < ORDEN; m++) {
-                sumo_multiplico(matrix, ORDEN, m, pivot_i, -matrix[m][pivot_j]*1.0/matrix[pivot_i][pivot_j]);
+                sumo_multiplico(matrix, ORDEN, m, pivot_i, -matrix[m][pivot_j]/matrix[pivot_i][pivot_j]);
+        }
+}
+
+// Elimina los -0 y redondea el resultado a 2 cifras
+// Sin esto algunos números no aparecen como 0 sino como números cercanos a 0 (algo tipo -1.14e-8)
+// o como -0
+void redondear(float matrix[20][20], int ORDEN) {
+        for(int i = 0; i < ORDEN; i++) {
+                for(int j = 0; j < ORDEN; j++) {
+                        matrix[i][j] = round(matrix[i][j] * 100) / 100;
+                        if(matrix[i][j] == -0) matrix[i][j] = 0;
+                }
         }
 }
 
@@ -98,17 +108,21 @@ float determinante(float matrix[20][20], int ORDEN) {
                 acum *= matrix[i][i];
         }
 
+        redondear(matrix, ORDEN);
+
         return acum;
 }
 
 //--------------------------------------------------------------------
 
 int main() {
+        srand(time(NULL));
+
         //float matrix[20][20] = {{1,2,3},{0,-3,4},{0,0,3}}, det;
         float matrix[20][20], det;
-        int ORDEN = 3;
+        int ORDEN = 5;
 
-        random_matrix(matrix, ORDEN, -10, 10);
+        random_matrix(matrix, ORDEN, -5, 5);
         print_matrix(matrix, ORDEN);
 
         det = determinante(matrix, ORDEN);

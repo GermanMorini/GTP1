@@ -6,8 +6,6 @@ using namespace std;
 // Los índices son: i (filas), j (columnas)
 
 void random_matrix(float matrix[20][20], int SIZE, int MIN, int MAX) {
-        srand(time(NULL));
-
         for (short i = 0; i < SIZE; i++) {
                 for (short j = 0; j < SIZE; j++) {
                         matrix[i][j] = MIN + rand()%(MAX-MIN);
@@ -56,6 +54,8 @@ void type_3_op(float matrix[20][20], int SIZE, int i1, int i2) {
 }
 
 int main() {
+        srand(time(NULL));
+
         float matrix[20][20];
         int SIZE = 4;
 
