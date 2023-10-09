@@ -13,14 +13,57 @@
 	// 	"description": "Log output to console"
 	// }
 	
-	"plant": {
+	"plant1": {
 		// Plantilla
-		"prefix": "plant",
+		"prefix": "plant1",
 		"body": [
 			"#include<iostream>\n",
 			"using namespace std;\n",
 			"int main(${1:int argc, char const *argv[]}) {",
 			"	${2://code}",
+			"	return 0;",
+			"}"
+		]
+	},
+	"plant2": {
+		// Plantilla 2
+		"prefix": "plant2",
+		"body": [
+			"#include<iostream>",
+			"#include<time.h>\n",
+			"using namespace std;\n",
+			"//------------- AYUDA PARA TESTEAR EL CÓDIGO ---------------------------\n",
+			"void random_mat(float matrix[20][20], int ${1:FILAS}, int ${2:COLUMNAS}, int MIN, int MAX) {",
+			"	for (short i = 0; i < ${1:FILAS}; i++) {",
+			"		for (short j = 0; j < ${2:COLUMNAS}; j++) {",
+			"			matrix[i][j] = MIN + rand()%(MAX-MIN+1);",
+			"		}",
+			"	}",
+			"}\n",
+			"void random_vec(int v[], int LARGO, int MIN, int MAX) {",
+			"	for (short i = 0; i < LARGO; i++) {",
+			"		v[i] = MIN + rand()%(MAX-MIN+1);",
+			"	}",
+			"}\n",
+			"void imp_mat(float matrix[20][20], int ${1:FILAS}, int ${2:COLUMNAS}) {",
+			"	for (short i = 0; i < ${1:FILAS}; i++) {",
+			"		for (short j = 0; j < ${2:COLUMNAS}; j++) {",
+			"			cout << matrix[i][j] << \"\\t\";",
+			"		}",
+			"		cout << \"\\n\";",
+			"	}",
+			"	cout << \"\\n\";",
+			"}\n",
+			"void imp_vect(int v[], int LARGO) {",
+			"	for (short i = 0; i < LARGO; i++) {",
+			"		cout << v[i] << \" \";",
+			"	}",
+			"	cout << \"\\n\\n\";",
+			"}\n",
+			"//--------------------------------------------------------------------\n\n\n",
+			"int main(${3:int argc, char const *argv[]}) {",
+			"	srand(time(NULL));",
+			"	${4://code}",
 			"	return 0;",
 			"}"
 		]

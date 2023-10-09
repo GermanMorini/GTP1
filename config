@@ -9,3 +9,7 @@ function cmpExe() {
 
 	g++ -o "./exec/${1%.*}" $* && "./exec/${1%.*}"
 }
+
+git config user.name "Programación I"
+git config user.email "2302130@ucc.edu.ar"
+git config alias.logex "log --graph --abbrev-commit"

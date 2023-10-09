@@ -35,8 +35,8 @@ void multiplico(float matrix[20][20], int ORDEN, int i, float K) {
         }
 }
 
-void sumo_multiplico(float matrix[20][20], int ORDEN, int i1, int i2, float K) {
-        for(int m = 0; m < ORDEN; m++) {
+void sumo_multiplico(float matrix[20][20], int ORDEN, int i1, int i2, float K, int pivot_i) {
+        for(int m = pivot_i; m < ORDEN; m++) {
                 matrix[i1][m] += K*matrix[i2][m];
         }
 }
@@ -66,7 +66,9 @@ Luego se divide el resultado por el producto de todos los escalares que aparecie
 
 void ponchar(float matrix[20][20], int ORDEN, int pivot_i, int pivot_j) {
         for(int m = pivot_i+1; m < ORDEN; m++) {
-                sumo_multiplico(matrix, ORDEN, m, pivot_i, -matrix[m][pivot_j]/matrix[pivot_i][pivot_j]);
+                if(matrix[m][pivot_j] != 0) {
+                        sumo_multiplico(matrix, ORDEN, m, pivot_i, -matrix[m][pivot_j]/matrix[pivot_i][pivot_j], pivot_i);
+                }
         }
 }
 

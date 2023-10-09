@@ -71,7 +71,7 @@ void cambio_fila(float matrix[20][20], int COL, int i1, int i2) {
 // El índice "j" sirve para saber por qué coeficiente se deberá multiplicar la fila del pivot
 void ponchar(float matrix[20][20], int FIL, int COL, int pivot_i, int pivot_j) {
         for(int i = 0; i < FIL; i++) {
-                if(i != pivot_i) {
+                if(i != pivot_i and matrix[i][pivot_j] != 0) {
                         sumo_multiplico(matrix, COL, i, pivot_i, -matrix[i][pivot_j]);
                 }
         }
@@ -103,8 +103,11 @@ void merf(float matrix[20][20], int FIL, int COL) {
                 for(int i = pivot_indx; i < FIL; i++) {
                         if(matrix[i][j] != 0.0 and !has_pivot) {
                                 has_pivot = 1;
-                                multiplico(matrix, COL, i, 1.0/matrix[i][j]);
+
+                                if(matrix[i][j] != 1) multiplico(matrix, COL, i, 1.0/matrix[i][j]);
+                                
                                 cambio_fila(matrix, COL, i, pivot_indx);
+
                                 ponchar(matrix, FIL, COL, pivot_indx, j);
                                 pivot_indx++;
                         }
@@ -113,7 +116,6 @@ void merf(float matrix[20][20], int FIL, int COL) {
 
         redondear(matrix, FIL, COL);
 }
-
 
 int main() {
         srand(time(NULL));
@@ -124,11 +126,11 @@ int main() {
         //         {1,2,7,9}
         // };
 
-        // float matrix[20][20] = {
-        //         {0,-3,-47, 3},
-        //         {0,-196,0,-882},
-        //         {0,2,0,9}
-        // };
+        float matrix[20][20] = {
+                {0,-3,-47, 3},
+                {0,-196,0,-882},
+                {0,2,0,9}
+        };
 
         // 8 × 10
         // float matrix[20][20] = {
@@ -142,10 +144,10 @@ int main() {
         //         {35678 ,  64454 ,  30167 ,  70719 ,  64904  , -2607  , -47386 , 8633   , 53900  , 97233}
         // };
 
-        float matrix[20][20];
-        int FIL = 3, COL = 5;
+        // float matrix[20][20];
+        int FIL = 3, COL = 4;
 
-        random_matrix(matrix, FIL, COL, -100000, 100000);
+        // random_matrix(matrix, FIL, COL, -10, 10);
         print_matrix(matrix, FIL, COL);
 
         merf(matrix, FIL, COL);

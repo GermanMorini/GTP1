@@ -12,13 +12,31 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"main": {
-		"prefix": "main",
+	"plant1": {
+		"prefix": "plant1",
 		"body": [
 			"def main():",
 			"	${1:#code}",
-			"\nif __name__ == \"__main__\":",
+			"\nif __name__ == '__main__':",
 			"	main()"
+		]
+	},
+	"plant2": {
+		"prefix": "plant2",
+		"body": [
+			"from PySide6.QtWidgets import QApplication, QWidget",
+			"import sys\n",
+			"class MainWindow(QWidget):",
+			"	def __init__(self):",
+                	"		super().__init__()",
+                	"		self.setWindowTitle(\"\")\n",
+			"def main():",
+        		"	app = QApplication(sys.argv)",
+        		"	win = MainWindow()",
+        		"	win.show()",
+        		"	app.exec()\n",
+			"if __name__ == '__main__':",
+        		"	main()\n"
 		]
 	}
 }

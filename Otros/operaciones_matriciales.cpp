@@ -71,7 +71,7 @@ int main() {
         float m1[20][20], m2[20][20], res[20][20];
         // int FIL = 3, COL = 4;
         // int M = 4, N = 3, Q = 5;
-        int M = 2, N = 2, Q = 2;
+        int M = 4, N = 3, Q = 3;
 
         // random_matrix(m1, FIL, COL, 0, 10);
         // random_matrix(m2, FIL, COL, 0, 2);
