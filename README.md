@@ -1,7 +1,5 @@
 # Programación I
 
-- *cpp.json* tiene plantillas de código para C++
+- *cpp.json* y *python.json* son plantillas de código
 
-- *cmpExe* permite compilar el código mediante la terminal
-
-- `git config --global alias.logex "log --abbrev-commit --graph"` añade un alias para git
+- *config* es un script que configura el entorno de trabajo de git bash
