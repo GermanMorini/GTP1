@@ -3,44 +3,41 @@
 
 using namespace std;
 
-void random_mat1(int mat[][9]) {
+// Anula casillas al azar, seran las que el usuario podrá ingresará valores
+//Las que queden como múltiplos de 10 no se podrán editar
+void anular_casillas(int mat[][9]) {
         for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
-                        if(rand()%2) {
-                                mat[i][j] = 0;
-                        }
+                        mat[i][j] = mat[i][j]*(rand()%2);
                 }
         }
 }
 
-void imp_mat1(int mat[][9]) {
+/* Imprime la matriz
+        Cuando el valor es múltiplo de 10 se lo divide por 10
+        Cuando es 0, se imprime un espacio
+
+        Cada 3 índices, tanto de "i" como de "j" se imprime alguna barra "|" ó "---"
+        esto para darle el formato de sudoku
+*/
+void imprimir_matriz(int mat[][9]) {
         for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
-                        if(mat[i][j]) {
-                                if(mat[i][j] >= 10) {
-                                        if((j+1)%3 == 0 and j != 8) {
-                                                cout << mat[i][j]/10 << " |";
-                                        } else {
-                                                cout << mat[i][j]/10 << " ";
-                                        }
-                                } else {
-                                        if((j+1)%3 == 0 and j != 8) {
-                                                cout << mat[i][j] << " |";
-                                        } else {
-                                                cout << mat[i][j] << " ";
-                                        }
-                                }
+                        if(mat[i][j]%10) {
+                                cout << mat[i][j];
                         } else {
-                                if((j+1)%3 == 0 and j != 8) {
-                                        cout << "  |";
-                                } else {
-                                        cout << "  ";
-                                }
+                                cout << mat[i][j]/10;
+                        }
+
+                        if((j+1)%3 == 0 and j != 8) {
+                                cout << " | ";
+                        } else {
+                                cout << "  ";
                         }
                 }
 
                 if((i+1)%3 == 0 and i != 8) {
-                        cout << "\n-------------------\n";
+                        cout << "\n---------------------------\n";
                 } else {
                         cout << "\n";
                 }
@@ -48,7 +45,12 @@ void imp_mat1(int mat[][9]) {
         cout << "\n";
 }
 
+/* Pide al usuario ingresar un valor y la ubicación en la matriz
+        Valida que el valor esté entre [1, 9], y que la casilla en los índices indicados
+        sea editable (para que sea editable, el valor contenido no debe ser múltiplo de 10)
 
+        En caso de éxito retorna true, sino false
+*/
 bool ingresar_valor(int mat[][9]) {
         int i,j, val;
 
@@ -73,23 +75,25 @@ bool ingresar_valor(int mat[][9]) {
         }
 }
 
-void copiar_matriz(int mat1[][9], int mat2[][9]) {
+// Copia la matriz resuelta en otra matriz, que será la que resolverá el jugador
+void copiar_matriz(int copia[][9], int sudoku[][9]) {
         for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
-                        mat1[i][j] = mat2[i][j];
+                        copia[i][j] = sudoku[i][j];
                 }
         }
 }
 
-bool partida_acabada(int mat[][9], int respuesta[][9]) {
+// Compara si las dos matrices son iguales, momento en que acabará la partida
+bool partida_acabada(int mat[][9], int copia[][9]) {
         bool b = 1;
 
         for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
-                        if(respuesta[i][j] >= 10) {
-                                b *= (mat[i][j]/10 == respuesta[i][j]/10);
+                        if(copia[i][j] >= 10) {
+                                b *= (mat[i][j] == copia[i][j]);
                         } else {
-                                b *= (mat[i][j]/10 == respuesta[i][j]);
+                                b *= (mat[i][j] == copia[i][j]*10);
                         }
                 }
         }
@@ -100,7 +104,8 @@ bool partida_acabada(int mat[][9], int respuesta[][9]) {
 int main() {
         srand(time(NULL));
         
-        int mat1[9][9] = {
+        // Un sudoku ya resuelto, todos sus valores se multiplicaron por 10
+        int SUDOKU1[9][9] = {
                 {10,30,60,40,90,20,50,80,70},
                 {50,90,40,70,60,80,10,30,20},
                 {70,20,80,30,10,50,90,60,40},
@@ -112,16 +117,17 @@ int main() {
                 {90,10,30,80,20,70,40,50,60} 
         };
 
-        int respuesta[9][9], contador_operaciónes = 0;
+        // Se lleva la cuenta de las operaciónes para imprimir, como dato, al final
+        int copia[9][9], contador_operaciones = 0;
 
-        copiar_matriz(respuesta, mat1);
+        copiar_matriz(copia, SUDOKU1);
 
-        random_mat1(respuesta);
+        anular_casillas(copia);
 
-        while(!partida_acabada(mat1, respuesta)) {
-                imp_mat1(respuesta);
+        while(!partida_acabada(SUDOKU1, copia)) {
+                imprimir_matriz(copia);
 
-                while(!ingresar_valor(respuesta));
+                while(!ingresar_valor(copia));
                 contador_operaciones++;
         }
 
