@@ -26,36 +26,32 @@ class Connection:
                         print(e)
 
         # Manda datos
-        def send_data(self, msg:str = ""):
-                try:
-                        # Retorna otro socket enlazado a la conexión, junto con su dirección
-                        conn, addr = self.sock.accept()
-                        if self.VERBOSE: print(f"Conexión desde {addr[0]}:{addr[1]}")
+        def send_data(self, msg):
+                # Retorna otro socket enlazado a la conexión, junto con su dirección
+                conn, addr = self.sock.accept()
+                if self.VERBOSE: print(f"Conexión desde {addr[0]}:{addr[1]}")
 
-                        conn.send(msg.encode('utf-8'))
-                        conn.close()
-                finally:
-                        self.close()
+                conn.send(msg)
+                conn.close()
 
         # Recive datos
         def recv_data(self) -> bytes:
                 conn, addr = self.sock.accept()
                 if self.VERBOSE: print(f"Conexión desde {addr[0]}:{addr[1]}")
 
-                try:
-                        rtn:bytes = b""
+                rtn:bytes = b""
 
-                        while True:
-                                data = conn.recv(1024)
-                                
-                                if not data:
-                                        break
-                                
-                                rtn += data
+                while True:
+                        data = conn.recv(1024)
+                        
+                        if not data:
+                                break
+                        
+                        rtn += data
 
-                        return rtn
-                finally:
-                        self.sock.close()
+                conn.close()
+
+                return rtn
 
         def close(self):
                 self.sock.close()
@@ -75,11 +71,16 @@ def main():
 
         if opt.conn_type == 'send':
                 if opt.msg == None:
-                        data = sys.stdin.read()
+                        # En caso de usar pipes. Ej: `cat imagen.jpg | python3 sockets.py -t send`
+                        data = sys.stdin.buffer.read()
                 else:
+                        # En caso de usar la flag `-m`
                         data = opt.msg
 
-                conn.send_data(data)
+                try:
+                        conn.send_data(data.encode())
+                except:
+                        conn.send_data(data)
         elif opt.conn_type == 'recv':
                 msg = conn.recv_data()
 
