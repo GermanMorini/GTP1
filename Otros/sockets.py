@@ -1,46 +1,49 @@
+#!/bin/python3
+
 import sys, optparse
+from optparse import Values
 from socket import *
 
 class Connection:
 
-        MAX_CONNECTIONS:int = 3
-        IP:str = '192.168.1.24'
-        PORT:int = 9090
+        MAX_CONNECTIONS:int = 3 # Cantidad máxima de connexiones simultáneas a escuchar
+        DEFAULT_TIMEOUT:int = 10 # Tiempo que se quedará escuchando por conexiónes
+        IP:str
+        PORT:int
         VERBOSE:bool
         buff:str = ""
         sock:socket
 
-        def __init__(self, verbose):
-                try:
-                        self.VERBOSE = verbose
-                        self.sock = socket(AF_INET, SOCK_STREAM)
+        def __init__(self, verbose, ip, port):
+                self.VERBOSE = verbose
 
-                        # 'bind' enlaza la dirección IP a el puerto especificado (otros procesos en el sistema no podrán usar esa dirección)
-                        self.sock.bind((self.IP, self.PORT))
-
-                        # Se pone a la escucha, e indica cantidad máxima de connexiones simultáneas a escuchar
-                        self.sock.listen(self.MAX_CONNECTIONS)
-                        
-                        if self.VERBOSE: print(f"Enlazado a {self.IP}:{self.PORT} ...")
-                except Exception as e:
-                        print(e)
+                # AF_INET -> IpV4
+                # SOCK_STREAM -> TCP
+                self.sock = socket(AF_INET, SOCK_STREAM)
+                self.IP = ip
+                self.PORT = port
 
         # Manda datos
         def send_data(self, msg):
+                self.sock.connect((self.IP, self.PORT))
+                if self.VERBOSE: print(f"Conectado a {self.IP}:{self.PORT}")
+
+                self.sock.send(msg)
+                self.close()
+
+        # Recive datos
+        def recv_data(self) -> bytes:
+                # 'bind' enlaza la dirección IP a el puerto especificado (otros procesos en el sistema no podrán usar esa dirección)
+                self.sock.bind((self.IP, self.PORT))
+                self.sock.listen(self.MAX_CONNECTIONS)
+                self.sock.settimeout(self.DEFAULT_TIMEOUT)
+                if self.VERBOSE: print(f"Escuchando en {self.IP}:{self.PORT} ...")
+
                 # Retorna otro socket enlazado a la conexión, junto con su dirección
                 conn, addr = self.sock.accept()
                 if self.VERBOSE: print(f"Conexión desde {addr[0]}:{addr[1]}")
 
-                conn.send(msg)
-                conn.close()
-
-        # Recive datos
-        def recv_data(self) -> bytes:
-                conn, addr = self.sock.accept()
-                if self.VERBOSE: print(f"Conexión desde {addr[0]}:{addr[1]}")
-
                 rtn:bytes = b""
-
                 while True:
                         data = conn.recv(1024)
                         
@@ -56,18 +59,30 @@ class Connection:
         def close(self):
                 self.sock.close()
 
-def main():
-        # Manipulo los parámetros pasados al script
-        parser = optparse.OptionParser()
-        parser.add_option('-H', dest='ip', type='str', help='IP de destino')
-        parser.add_option('-p', dest='port', type='int', help='Puerto de destino')
-        parser.add_option('-m', dest='msg', type='str', help='Mensaje a enviar')
-        parser.add_option('-t', dest='conn_type', type='str', help='Tipo de conexión (send, ksend, recv)', default='send')
-        parser.add_option('-v', dest='verbose', action='store_true', default=False, help='Verbosidad')
+# Manipulo los parámetros pasados al script
+def parse_options() -> (Values, list[str]):
+        # DEFAULT_IP = gethostbyname(gethostname())
+        DEFAULT_IP = '192.168.1.24'
+        DEFAULT_PORT = 9090
 
-        (opt, args) = parser.parse_args()
+        parser = optparse.OptionParser()
+        parser.add_option('-H', dest='ip', type='str', help='IP de destino', default=DEFAULT_IP)
+        parser.add_option('-p', dest='port', type='int', help='Puerto de destino', default=DEFAULT_PORT)
+        parser.add_option('-m', dest='msg', type='str', help='Mensaje a enviar')
+        parser.add_option('-t', dest='conn_type', type='str', help='Tipo de conexión (send, recv)', default='send')
+        parser.add_option('-v', dest='verbose', action='store_true', default=False, help='Verbosidad')
         
-        conn = Connection(opt.verbose)
+        return parser.parse_args()
+
+def main():
+        (opt, args) = parse_options()
+        
+        conn:Connection
+
+        try:
+                conn = Connection(opt.verbose, opt.ip, opt.port)
+        except:
+                exit(1)
 
         if opt.conn_type == 'send':
                 if opt.msg == None:
@@ -92,8 +107,6 @@ def main():
                         sys.stdout.buffer.write(msg)
         else:
                 print("No existe ese tipo de conexión!")
-                conn.close()
-                exit(1)
 
         conn.close()
 

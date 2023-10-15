@@ -10,6 +10,14 @@ function cmpExe() {
 	g++ -o "./exec/${1%.*}" $* && "./exec/${1%.*}"
 }
 
-git config user.name "Programación I"
+if [ ! -f ~/.ssh/id_rsa.pub ]; then
+        ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa -q
+fi
+cat ~/.ssh/id_rsa.pub
+
+git config user.name "Luis Miguel"
 git config user.email "2302130@ucc.edu.ar"
+
 git config alias.logex "log --graph --abbrev-commit"
+git config alias.amd "commit --amend --no-edit"
+git config alias.st "status -s"

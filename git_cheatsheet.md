@@ -96,6 +96,14 @@ branch                                  # Muestra las ramas
 ___
 
 ~~~bash
+rebase <rama>                           # Une todos los commits de la rama indicada a la rama actual
+
+rebase <rama1> <rama2>                  # Une todos los commits de rama1 en rama2
+~~~
+
+___
+
+~~~bash
 log                                     # Registro de commits
 
 log --abbrev-commit                     # Abrevia los hashes de los commits
