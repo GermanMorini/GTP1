@@ -63,6 +63,8 @@ ___
 push                                    # Sube los cambios al repo. remoto
 
 push <remoto>                           # Ídem
+
+push --set-upstream <remoto> <rama>     # Establece que el repo. remoto 'remoto' le pertenece a la rama 'rama'
 ~~~
 
 ___
@@ -135,6 +137,8 @@ config user.name <nombre>               # Indica tu nombre
 config user.email <email>               # Indica tu email 
 
 config alias.<nombre> "<alias>"         # Crea un alias para un comando
+
+config init.defaultBranch <nombre_rama> # Establece el nombre de la rama por defecto al crear un repo
 ~~~
 
 ___

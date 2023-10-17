@@ -13,39 +13,35 @@ public class basicos {
 
                 if (args.length <= 1) System.exit(1);
 
-                // System.out.println("%s, %s".formatted(args[0], args[1]));
-                if (args[0].equals("-l")) {
-                        try {
+                try {
+                        if (args[0].equals("-l")) {
                                 conn = new Conexion(Integer.parseInt(args[1]));
                                 conn.recibir_info();
-                        } catch (IOException e) {
-                                System.out.println("No se pudo crear la conexión!");
-                                System.exit(2);
-                        }
-                }
-                else if (args[0] == "-s") {
-                        try {
+                        } 
+                        else if (args[0].equals("-s")) {
                                 conn = new Conexion(args[1], Integer.parseInt(args[2]));
                                 
                                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-                                String buff, msg  = "";
+                                String buff;
 
-                                while ((buff = br.readLine()) != null) {
-                                        msg += buff;
+                                while (! (buff = br.readLine()).equals("EOF")) {
+                                        conn.mandar_info(buff + "\n");
                                 }
 
-                                conn.mandar_info(msg);
-                        } catch (UnknownHostException e1) {
-                                System.out.println("Host desconocido");
-                                System.exit(1);
-                        } catch (IOException e2) {
-                                System.out.println("No se pudo crear la conexión!");
-                                System.exit(2);
+                                br.close();
+                                conn.close();
                         }
-                } else {
-                        System.out.println("Error en los parámetros");
+                        else {
+                                System.out.println("Error en los parámetros");
+                                System.exit(1);
+                        }
+                } catch (UnknownHostException e1) {
+                        System.out.println("Host desconocido");
                         System.exit(1);
+                } catch (IOException e2) {
+                        System.out.println("No se pudo crear la conexión!");
+                        System.exit(2);
                 }
         }
 }
@@ -53,9 +49,11 @@ public class basicos {
 class Conexion {
         private ServerSocket serv_sock;
         private Socket sock;
+        private DataOutputStream dos;
 
         public Conexion(String ip, int puerto) throws IOException, UnknownHostException {
                 sock = new Socket(ip, puerto);
+                dos = new DataOutputStream(sock.getOutputStream());
         }
 
         public Conexion(int puerto) throws IOException {
@@ -65,11 +63,7 @@ class Conexion {
 
         public void mandar_info(String info) {
                 try {
-                        DataOutputStream dos = new DataOutputStream(sock.getOutputStream());
                         dos.writeUTF(info);
-
-                        dos.close();
-                        sock.close();
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
@@ -86,7 +80,7 @@ class Conexion {
                         String msg;
 
                         while ((msg = br.readLine()) != null) {
-                                System.out.print(msg);
+                                System.out.print(msg + "\n");
                         }
 
                         br.close();
@@ -99,5 +93,12 @@ class Conexion {
                 } catch (Exception e2) {
                         e2.printStackTrace();
                 }
+        }
+
+        public void close() {
+                try {
+                        serv_sock.close();
+                        sock.close();
+                } catch (Exception e) {}
         }
 }
