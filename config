@@ -10,6 +10,12 @@ function cmpExe() {
 	g++ -o "./exec/${1%.*}" $* && "./exec/${1%.*}"
 }
 
+function jvcmp() {
+        local params=($*)
+        javac $1 && java ${1%.*} ${params[*]:1}
+        unset params
+}
+
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
         ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa -q
 fi

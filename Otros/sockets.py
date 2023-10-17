@@ -32,7 +32,7 @@ class Connection:
                 self.close()
 
         # Recive datos
-        def recv_data(self) -> bytes:
+        def recv_data(self):
                 # 'bind' enlaza la dirección IP a el puerto especificado (otros procesos en el sistema no podrán usar esa dirección)
                 self.sock.bind((self.IP, self.PORT))
                 self.sock.listen(self.MAX_CONNECTIONS)
@@ -43,18 +43,9 @@ class Connection:
                 conn, addr = self.sock.accept()
                 if self.VERBOSE: print(f"Conexión desde {addr[0]}:{addr[1]}")
 
-                rtn:bytes = b""
                 while True:
                         data = conn.recv(1024)
-                        
-                        if not data:
-                                break
-                        
-                        rtn += data
-
-                conn.close()
-
-                return rtn
+                        sys.stdout.buffer.write(data)
 
         def close(self):
                 self.sock.close()
@@ -62,7 +53,7 @@ class Connection:
 # Manipulo los parámetros pasados al script
 def parse_options() -> (Values, list[str]):
         # DEFAULT_IP = gethostbyname(gethostname())
-        DEFAULT_IP = '192.168.1.24'
+        DEFAULT_IP = '192.168.0.13'
         DEFAULT_PORT = 9090
 
         parser = optparse.OptionParser()
@@ -81,34 +72,37 @@ def main():
 
         try:
                 conn = Connection(opt.verbose, opt.ip, opt.port)
-        except:
-                exit(1)
 
-        if opt.conn_type == 'send':
-                if opt.msg == None:
-                        # En caso de usar pipes. Ej: `cat imagen.jpg | python3 sockets.py -t send`
-                        data = sys.stdin.buffer.read()
+                if opt.conn_type == 'send':
+                        if opt.msg == None:
+                                # En caso de usar pipes. Ej: `cat imagen.jpg | python3 sockets.py -t send`
+                                data = sys.stdin.buffer.read()
+                        else:
+                                # En caso de usar la flag `-m`
+                                data = opt.msg
+
+                        try:
+                                conn.send_data(data.encode())
+                        except:
+                                conn.send_data(data)
+                elif opt.conn_type == 'recv':
+                        conn.recv_data()
+
+                        # try:
+                        #         # En caso de que el mensaje sea texto plano
+                        #         print(msg.decode('utf-8'))
+                        # except:
+                        #         # En caso de que el mensaje sea un archivo, ej: una foto, pdf
+                        #         sys.stdout.buffer.write(msg)
                 else:
-                        # En caso de usar la flag `-m`
-                        data = opt.msg
+                        print("No existe ese tipo de conexión!")
 
-                try:
-                        conn.send_data(data.encode())
-                except:
-                        conn.send_data(data)
-        elif opt.conn_type == 'recv':
-                msg = conn.recv_data()
-
-                try:
-                        # En caso de que el mensaje sea texto plano
-                        print(msg.decode('utf-8'))
-                except:
-                        # En caso de que el mensaje sea un archivo, ej: una foto, pdf
-                        sys.stdout.buffer.write(msg)
-        else:
-                print("No existe ese tipo de conexión!")
-
-        conn.close()
+                conn.close()
+        except KeyboardInterrupt as ki:
+                print(ki)
+                exit(1)
+        finally:
+                conn.close()
 
 if __name__ == '__main__':
         main()
