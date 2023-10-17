@@ -2,57 +2,10 @@
 
 using namespace std;
 
-//--------------------------------------------------------------------
-#include<time.h>
-#include<string.h>
-#include<iostream>
-
-const string base_de_datos[100] = {"Forrest", "Mahmud", "Rosella", "Risa", "Katee", "Bonnibelle", "Germana", "Maximilian", "Booth", "Joly", "Luciana", "Adolph", "Freemon", "Siegfried", "Harper", "Nikolas", "Marris", "Torrance", "Viola", "Shandy", "Craggy", "Bethany", "Jewell", "Saxe", "Eldredge", "Elsa", "Gweneth", "Gerrie", "Bat", "Randall", "Trumaine", "Ed", "Stacie", "Roanna", "Rozalin", "Lexie", "Hebert", "Elinore", "Bear", "Mellisa", "Darcee", "Ari", "Carleen", "Van", "Fifine", "Minny", "Elmo", "Norina", "Adi", "Pepita", "Eloisa", "Josee", "Julita", "Gilbert", "Anatollo", "Harman", "Bill", "Waylan", "Brigham", "Kelila", "Auroora", "Mano", "Fayette", "Clo", "Rora", "Almeta", "Elwira", "Hugibert", "Jake", "Olimpia", "Pete", "Mikaela", "Ollie", "Phillipe", "Loralee", "Aggi", "Sandi", "Chelsy", "Laird", "Giselbert", "Clarissa", "Marylinda", "Leesa", "Perry", "Roxanna", "Fidelia", "Leticia", "Jenna", "Josefina", "Alli", "Robinette", "Janessa", "Adolphe", "Freddie", "Helene", "Culver", "Sylvia", "Ardith", "Rafaela", "Yetty"};
-
-void nombre_aleatorio(char nombre[]) {
-        int random_index = rand()%100;
-        // 'strcpy' copia un arreglo de caracteres en otro
-        // ´string.c_str()´ convierte un dato de tipo 'string' en un arrgelo de 'char's
-        strcpy(nombre, base_de_datos[random_index].c_str());
-}
-
-void matriz_aleatoria(float matrix[][20], int FILAS, int COLUMNAS, int MIN, int MAX) {
-        for (short i = 0; i < FILAS; i++) {
-                for (short j = 0; j < COLUMNAS; j++) {
-                        matrix[i][j] = MIN + rand()%(MAX-MIN+1);
-                }
-        }
-}
-
-void vector_aleatorio(int v[], int LARGO, int MIN, int MAX) {
-        for (short i = 0; i < LARGO; i++) {
-                v[i] = MIN + rand()%(MAX-MIN+1);
-        }
-}
-
-void imprimir_matriz(float matrix[][20], int FILAS, int COLUMNAS) {
-        for (short i = 0; i < FILAS; i++) {
-                for (short j = 0; j < COLUMNAS; j++) {
-                        cout << matrix[i][j] << "\t";
-                }
-                cout << "\n";
-        }
-        cout << "\n";
-}
-
-void imprimir_vector(int v[], int LARGO) {
-        for (short i = 0; i < LARGO; i++) {
-                cout << v[i] << " ";
-        }
-        cout << "\n\n";
-}
-
-//--------------------------------------------------------------------
-
 struct Datos {
         char nombre[20];
-        // fecha nacimiento, otra estructura?
-        char p_origen[20];
+        char nacimiento[20];
+        char pais[20];
 };
 
 struct Atleta {
@@ -62,10 +15,8 @@ struct Atleta {
 };
 
 int main() {
-        srand(time(NULL));
-
         Atleta atl[100], ganador;
-        int cantidad, indice = 0;
+        int cantidad, indice = 0, mayor_n_medallas = -1;
 
         cout << "Ingrese la cantidad de atletas: ";
         cin >> cantidad;
@@ -73,27 +24,45 @@ int main() {
         for (int i = 0; i < cantidad; i++) {
                 cout << "------ ATLETA "<<i+1<<" ------"<< endl << endl;
                 
+                cout << "Ingrese el deporte: ";
+                cin >> atl[i].deporte;
+
+                cout << "Ingrese el número de medallas obtenidas: ";
+                cin >> atl[i].medallas;
+                
+                if(mayor_n_medallas < atl[i].medallas) {
+                        indice = i;
+                        mayor_n_medallas = atl[i].medallas;
+                }
 
                 cout << endl;
                 for (int j = 0; j < 10; j++) {
                         cout << "Ingrese el nombre del atleta: ";
                         cin >> atl[i].datos.nombre;
+
                         cout << "Ingrese el país de origen: ";
-                        cin >> atl[i].datos.nombre;
-                        // cout << "Ingrese el nombre del atleta: ";
-                        // cin >> atl[i].datos.nombre;
+                        cin >> atl[i].datos.pais;
 
-                        
-
-                        puntajes[i] += par[i].puntajes[j];
+                        cout << "Ingrese la fecha de nacimiento: ";
+                        cin >> atl[i].datos.nacimiento;
                 }
         }
 
-        for (int i = 0; i < cantidad; i++) {
-                cout << "------ ATLETA "<<i+1<<" ------"<< endl << endl;
-                cout << "Descripción: " << par[i].nombre << endl;
-                imprimir_vector(par[i].puntajes, 10);
-        }
+        // for (int i = 0; i < cantidad; i++) {
+        //         cout << "------ ATLETA "<<i+1<<" ------"<< endl << endl;
+        //         cout << "Deporte: " << atl[i].deporte << endl;
+        //         cout << "Medallas: " << atl[i].medallas << endl;
+        //         cout << "Nombre: " << atl[i].datos.nombre << endl;
+        //         cout << "Nacimiento: " << atl[i].datos.nacimiento << endl;
+        //         cout << "Pais: " << atl[i].datos.pais << endl;
+        // }
+
+        cout << endl;
+
+        cout << "El atleta con mayor n de medallas es: " << endl;
+        cout << "Nombre: " << atl[indice].datos.nombre << endl;
+        cout << "Nacimiento: " << atl[indice].datos.nacimiento << endl;
+        cout << "Pais: " << atl[indice].datos.pais << endl;
 
         return 0;
 }
