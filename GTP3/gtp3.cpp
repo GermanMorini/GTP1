@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string.h>
 
 using namespace std;
 
@@ -9,12 +10,12 @@ void imprimir_vector(int v[], int LARGO) {
         cout << "\n\n";
 }
 
-struct Participante {
-        char nombre[20];
-        int puntajes[10];
-};
-
 int main() {
+        struct Participante {
+                char nombre[20];
+                int puntajes[10];
+        };
+
         Participante par[100], ganador;
         int cantidad, puntajes[100], indice = 0;
 
@@ -25,7 +26,8 @@ int main() {
                 cout << "------ PARTICIPANTE "<<i+1<<" ------"<< endl << endl;
                 
                 cout << "Ingrese el nombre del participante: ";
-                cin >> par[i].nombre;
+                cin.ignore();
+                cin.getline(par[i].nombre, 20, '\n');
 
                 cout << endl;
                 puntajes[i] = 0;

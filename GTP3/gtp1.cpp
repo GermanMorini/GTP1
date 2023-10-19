@@ -1,20 +1,22 @@
 #include<iostream>
+#include<string.h>
 
 using namespace std;
 
-struct Equipos {
-        char nombre[20];
-        int goles_realizados;
-        int goles_recibidos;
-};
-
 int main() {
+        struct Equipos {
+                char nombre[20];
+                int goles_realizados;
+                int goles_recibidos;
+        };
+        
         Equipos eq[8], aux[8];
         int CANTIDAD = 0;
 
         for (int i = 0; i < 8; i++) {
                 cout << "Ingrese el nombre del equipo: ";
-                cin >> eq[i].nombre;
+                cin.ignore();
+                cin.getline(eq[i].nombre, 20, '\n');
 
                 cout << "Ingrese goles hechos: ";
                 cin >> eq[i].goles_realizados;

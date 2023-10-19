@@ -72,10 +72,12 @@ void anadir(Cancion c[], int &largo) {
         Cancion can;
 
         cout << "Ingrese el nombre del artista: ";
-        cin >> can.artista;
+        cin.ignore();
+        cin.getline(can.artista, 20, '\n');
         
         cout << "Ingrese el título: ";
-        cin >> can.titulo;
+        cin.ignore();
+        cin.getline(can.titulo, 40, '\n');
         
         cout << "Ingrese la duración: ";
         cin >> can.duracion;
@@ -102,6 +104,7 @@ int main() {
 
         Cancion can[100];
         int opt, largo = 50;
+        bool salir = 0;
 
         generar_canciones(can);
 
@@ -114,7 +117,7 @@ int main() {
 
                 cin >> opt;
 
-                switch(opt) {
+                switch(not salir) {
                         case 1:
                                 anadir(can, largo);
                                 break;
@@ -125,9 +128,11 @@ int main() {
                                 // buscar(can, texto);
                                 break;
                         case 4:
-                                return 0;
+                                salir = 1;
                         default:
                                 cout << opt << " no es una opción válida!" << endl << endl;
                 }
         }
+
+        return 0;
 }
