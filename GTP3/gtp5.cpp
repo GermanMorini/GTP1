@@ -21,37 +21,6 @@ void aleatorio(char nombre[], string base_de_datos[]) {
         strcpy(nombre, base_de_datos[random_index].c_str());
 }
 
-void matriz_aleatoria(float matrix[][20], int FILAS, int COLUMNAS, int MIN, int MAX) {
-        for (short i = 0; i < FILAS; i++) {
-                for (short j = 0; j < COLUMNAS; j++) {
-                        matrix[i][j] = MIN + rand()%(MAX-MIN+1);
-                }
-        }
-}
-
-void vector_aleatorio(int v[], int LARGO, int MIN, int MAX) {
-        for (short i = 0; i < LARGO; i++) {
-                v[i] = MIN + rand()%(MAX-MIN+1);
-        }
-}
-
-void imprimir_matriz(float matrix[][20], int FILAS, int COLUMNAS) {
-        for (short i = 0; i < FILAS; i++) {
-                for (short j = 0; j < COLUMNAS; j++) {
-                        cout << matrix[i][j] << "\t";
-                }
-                cout << "\n";
-        }
-        cout << "\n";
-}
-
-void imprimir_vector(int v[], int LARGO) {
-        for (short i = 0; i < LARGO; i++) {
-                cout << v[i] << " ";
-        }
-        cout << "\n\n";
-}
-
 //--------------------------------------------------------------------
 
 struct Cancion {
