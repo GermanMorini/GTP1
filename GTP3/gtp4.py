@@ -55,9 +55,8 @@ def main():
                 r.randint(0,5),
                 Datos(
                         r.choice(NOMBRES),
-                        Fecha(r.randint(1,28), r.randint(1,12), 1980 + r.randint(0,23)),
-                        r.choice(PAISES)
-                        )
+                        Fecha(r.randint(1,28), r.randint(1,12), r.randint(1980,2000)),
+                        r.choice(PAISES))
                 ) for n in range(cantidad)]
         mayor_n_medallas:int = atl[0].medallas
         ganador:Atleta = atl[0]

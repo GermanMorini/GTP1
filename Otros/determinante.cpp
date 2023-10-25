@@ -98,7 +98,7 @@ float determinante(float matrix[20][20], int ORDEN) {
                                 tiene_pivot = 1;
                                 cambio_fila(matrix, ORDEN, p_index, i);
                                 ponchar(matrix, ORDEN, p_index, j);
-                                // (p_index == i) quiere decir que no hubo cambio de fila
+                                // (p_index != i) quiere decir que hubo cambio de fila
                                 acum *= pow((-1), p_index != i);
                                 p_index++;
                         }
