@@ -1,6 +1,7 @@
 #!/bin/bash
 
 alias cls=clear
+alias aleatorio="sed -E 's/cin\.getline\(([^,]+).*/aleatorio\(\1, NOMBRES\);/g ; /cin\.ignore\(\)/d ; s/cin *>> *([^>>]+).*;/\1 = rand()%/g;' $1"
 
 function cmpExe() {
         if [ ! -d "./exec" ]; then

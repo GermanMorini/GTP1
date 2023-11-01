@@ -20,37 +20,68 @@ void aleatorio(char nombre[], string base_de_datos[]) {
 
 struct Cancion {
         char artista[20], titulo[40];
-        int duracion, tamano;
+        int duracion, tamanio;
 };
 
-void generar_canciones(Cancion playlist[]) {
-        for (int i = 0; i < 50; i++) {
+bool es_subcadena(char sub_cadena[], char cadena[]) {
+        int largo_c = strlen(cadena), largo_sc = strlen(sub_cadena);
+        bool b;
+
+        for (int i = 0; i < largo_c - largo_sc + 1; i++) {
+                b = 1;
+
+                for (int j = 0; j < largo_sc; j++) {
+                        b *= sub_cadena[j] == cadena[i+j];
+                }
+
+                if(b) return b;
+        }
+
+        return b;
+}
+
+bool esta_aniadida(Cancion playlist[], Cancion c, int largo) {
+        for (int i = 0; i < largo; i++) {
+                if(!strcmp(c.artista, playlist[i].artista) and !strcmp(c.titulo, playlist[i].titulo)) {
+                        return 1;
+                }
+        }
+        return 0;
+}
+
+void generar_canciones(Cancion playlist[], int &largo) {
+        for (int i = 0; i < 10; i++) {
                 aleatorio(playlist[i].artista, NOMBRES);
                 aleatorio(playlist[i].titulo, PELICULAS);
                 playlist[i].duracion = 1 + rand()%19;
-                playlist[i].tamano = 100 + rand()%400;
+                playlist[i].tamanio = 100 + rand()%400;
+                largo++;
         }
 }
 
 void anadir(Cancion playlist[], int &largo) {
         Cancion can;
 
-        cout << "Ingrese el título: ";
         cin.ignore();
+        cout << "Ingrese el título: ";
         cin.getline(can.titulo, 40, '\n');
         
+        // cin.ignore();
         cout << "Ingrese el nombre del artista: ";
-        cin.ignore();
         cin.getline(can.artista, 20, '\n');
         
         cout << "Ingrese la duración: ";
         cin >> can.duracion;
         
         cout << "Ingrese el tamaño: ";
-        cin >> can.tamano;
+        cin >> can.tamanio;
 
-        playlist[largo] = can;
-        largo++;
+        if(!esta_aniadida(playlist, can, largo)) {
+                playlist[largo] = can;
+                largo++;
+        } else {
+                cout << "La canción ya está añadida!" << endl;
+        }
 }
 
 void mostrar(Cancion playlist[], int largo) {
@@ -58,47 +89,26 @@ void mostrar(Cancion playlist[], int largo) {
                 cout << endl << "------ CANCIÓN " << i+1 << " ------" << endl << endl;
                 cout << "Título: " << playlist[i].titulo << endl;
                 cout << "Artista: " << playlist[i].artista << endl;
-                cout << "Duración: " << playlist[i].duracion << endl;
-                cout << "Tanaño: " << playlist[i].tamano << endl;
+                // cout << "Duración: " << playlist[i].duracion << endl;
+                // cout << "Tanaño: " << playlist[i].tamanio << endl;
         }
 }
 
 void buscar(Cancion playlist[], int largo) {
         char busqueda[20];
         Cancion resultados[100];
-        int tipo_busqueda = -1, contador = 0;
+        int contador = 0;
 
-        while(tipo_busqueda != 1 and tipo_busqueda != 2) {
-                cout << "¿Por qué parámetro desea buscar? (1: título, 2: artista):" << endl << endl << "> ";
-                cin >> tipo_busqueda;
-                cout << endl;
-        }
-
-        switch (tipo_busqueda) {
-                case 1:
-                        cout << "Ingrese el título: ";
-                        cin.ignore();
-                        cin.getline(busqueda, 20, '\n');
-                        
-                        for (int i = 0; i < largo; i++) {
-                                if(strstr(playlist[i].titulo, busqueda) != NULL) {
-                                        resultados[contador] = playlist[i];
-                                        contador++;
-                                }
-                        }
-                        break;
-                case 2:
-                        cout << "Ingrese el nombre del artista: ";
-                        cin.ignore();
-                        cin.getline(busqueda, 20, '\n');
-                        
-                        for (int i = 0; i < largo; i++) {
-                                if(strstr(playlist[i].artista, busqueda) != NULL) {
-                                        resultados[contador] = playlist[i];
-                                        contador++;
-                                }
-                        }
-                        break;
+        cin.ignore();
+        cout << "Ingrese el título o artista: ";
+        cin.getline(busqueda, 20, '\n');
+        
+        for (int i = 0; i < largo; i++) {
+                // if(es_subcadena(busqueda, playlist[i].titulo)) {
+                if(!strcmp(playlist[i].artista, busqueda) or !strcmp(playlist[i].titulo, busqueda)) {
+                        resultados[contador] = playlist[i];
+                        contador++;
+                }
         }
 
         mostrar(resultados, contador);
@@ -108,10 +118,10 @@ int main() {
         srand(time(NULL));
 
         Cancion playlist[100];
-        int opt, largo = 10;
+        int opt, largo = 0;
         bool salir = 0;
 
-        generar_canciones(playlist);
+        generar_canciones(playlist, largo);
 
         while(not salir) {
                 cout << "Ingrese una opción: " << endl;
