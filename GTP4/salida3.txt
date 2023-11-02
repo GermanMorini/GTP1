@@ -1,0 +1,44 @@
+#INCLUDE<IOSTREAM>
+#INCLUDE<FSTREAM>
+#INCLUDE<STRING.H>
+
+USING NAMESPACE STD;
+
+BOOL IS_UPPER(CHAR C) {
+        RETURN C >= 65 AND C <= 90;
+}
+
+BOOL IS_ALPHANUM(CHAR C) {
+        RETURN (C >= 65 AND C <= 90) OR (C >= 97 AND C <= 122);
+}
+
+INT MAIN() {
+        IFSTREAM IFILE;
+        OFSTREAM OFILE;
+        CHAR BUFF[1024];
+
+        IFILE.OPEN("GTP3.CPP");
+        OFILE.OPEN("SALIDA3.TXT");
+
+        IF (IFILE.FAIL()) {
+                COUT << "NO SE PUDO ABRIR!" << ENDL;
+        } ELSE {
+                WHILE (!IFILE.EOF()) {
+                        IFILE.GETLINE(BUFF, 1024);
+
+                        FOR (INT I = 0; I < STRLEN(BUFF); I++) {
+                                // IF (IS_ALPHANUM(BUFF[I]) AND NOT IS_UPPER(BUFF[I])) BUFF[I] -= 32;
+                                BUFF[I] = TOUPPER(BUFF[I]);
+                                OFILE << BUFF[I];
+                        }
+                        
+                        OFILE << ENDL;
+                }
+
+                IFILE.CLOSE();
+                OFILE.CLOSE();
+        }
+        
+        RETURN 0;
+}
+
