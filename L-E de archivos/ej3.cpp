@@ -6,9 +6,9 @@ using namespace std;
 
 void load_file(char str[]) {
         ifstream file("entrada3.txt");
-        char buffer[40];
+        char buffer[64];
         
-        if(not file) {
+        if(file.fail()) {
                 cout << "Error al abrir el archivo!" << endl;
                 exit(2);
         }
@@ -35,7 +35,7 @@ void save_file(char str[]) {
 }
 
 int main() {
-        char str[1000];
+        char str[1024];
         
         load_file(str);
         save_file(str);

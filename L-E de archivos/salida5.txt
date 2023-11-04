@@ -1,0 +1,3 @@
+Cantidad de piezas con igual al diámetro: 4
+Cantidad de piezas con medida menor al diámetro: 2
+Cantidad de piezas con diferencia mayor al 5% resp. al diámetro: 1

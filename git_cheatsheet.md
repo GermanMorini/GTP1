@@ -4,7 +4,8 @@ Todos empiezan por `git`, se debe escribir `git <comando>`
 
 `path` puede ser un directorio, un archivo o un glob (`*` selecciona todo lo de la carpeta actual, `.` se refiere al directorio actual, `..` el directorio anterior, ... )
 
-Se puede combinar mas de una *flag*, ej: 
+Se puede combinar mas de una *flag*, ej:
+
 ~~~bash
 git commit --amend --no-edit                    # Sobreescribe el commit anterior y no cambia el mensaje
 
@@ -17,6 +18,12 @@ git commit -am "Hecho el ej. 12"                # Hace un commit, añadiendo tod
 
 ~~~bash
 clone <URL>                             # Clona un repo
+~~~
+
+___
+
+~~~bash
+init                                    # Crea un repositorio en la carpeta actual (en local, no en github)
 ~~~
 
 ___
@@ -181,6 +188,8 @@ stash list                              # Lista los stashes guardados (los indic
 stash show <n>                          # Muestra los cambios realizados en un stash
 
 stash apply <n>                         # Añade los cambios de un stash (se pueden añadir a otra rama)
+
+stash drop <n>                          # Borra un stash
 ~~~
 
 ___

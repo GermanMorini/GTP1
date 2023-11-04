@@ -16,7 +16,7 @@ void tmp_conversion(float n) {
         cout << n << " ºC -> " << n*9/5 + 32 << " ºF\n";
 }
 
-typedef void (*Operation)(float);
+typedef void *Operation(float);
 const int OPERATIONS = 3;
 const Operation op[OPERATIONS] = {
         NULL,

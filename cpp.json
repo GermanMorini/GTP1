@@ -159,7 +159,7 @@
 			"void ${1:load_file}() {",
 			"        ifstream file(\"filename\");",
 			"        ",
-			"        if(not file) {",
+			"        if(not file.fail()) {",
 			"                cout << \"Error al abrir el archivo!\" << endl;",
 			"                exit(2);",
 			"        }",

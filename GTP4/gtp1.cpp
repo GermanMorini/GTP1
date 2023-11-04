@@ -20,7 +20,7 @@ int main() {
                 } else {b = 0;}
         } while(b);
 
-        file.close();fire
+        file.close();
 
         return 0;
 }

@@ -17,6 +17,10 @@ function jvcmp() {
         unset params
 }
 
+function plantillar() {
+        sed -E 's/"/\\&/g ; s/.*/"&",/g' "$1"
+}
+
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
         ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa -q
 fi

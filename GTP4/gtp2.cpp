@@ -11,14 +11,15 @@ int main() {
 
         if(file.fail()) {
                 cout << "Error al abrir el archivo!" << endl;
-        } else {
-                while(!file.eof()) {
-                        for (int i = 0; i < 5; i++) {
-                                file.getline(buff, 1024);
-                                cout << buff << endl;
-                        }
-                        getchar();
+                return 2;
+        }
+
+        while(!file.eof()) {
+                for (int i = 0; i < 5; i++) {
+                        file.getline(buff, 1024);
+                        cout << buff << endl;
                 }
+                getchar();
         }
 
         file.close();
