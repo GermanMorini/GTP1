@@ -1,0 +1,500 @@
+------ EMPLEADO1 ------
+   Nombre: Bethany
+   Sueldo: 798652
+   Legajo: Browsezoom
+
+------ EMPLEADO2 ------
+   Nombre: Craggy
+   Sueldo: 789212
+   Legajo: Camimbo
+
+------ EMPLEADO3 ------
+   Nombre: Carleen
+   Sueldo: 775853
+   Legajo: Browsebug
+
+------ EMPLEADO4 ------
+   Nombre: Saxe
+   Sueldo: 772539
+   Legajo: Eayo
+
+------ EMPLEADO5 ------
+   Nombre: Olimpia
+   Sueldo: 772022
+   Legajo: Browseblab
+
+------ EMPLEADO6 ------
+   Nombre: Mikaela
+   Sueldo: 753589
+   Legajo: Devshare
+
+------ EMPLEADO7 ------
+   Nombre: Rora
+   Sueldo: 746925
+   Legajo: Cogidoo
+
+------ EMPLEADO8 ------
+   Nombre: Giselbert
+   Sueldo: 745366
+   Legajo: Devcast
+
+------ EMPLEADO9 ------
+   Nombre: Rora
+   Sueldo: 737501
+   Legajo: Avamm
+
+------ EMPLEADO10 ------
+   Nombre: Brigham
+   Sueldo: 737038
+   Legajo: Eabox
+
+------ EMPLEADO11 ------
+   Nombre: Darcee
+   Sueldo: 736406
+   Legajo: Einti
+
+------ EMPLEADO12 ------
+   Nombre: Leticia
+   Sueldo: 730803
+   Legajo: Einti
+
+------ EMPLEADO13 ------
+   Nombre: Josee
+   Sueldo: 727632
+   Legajo: Fanoodle
+
+------ EMPLEADO14 ------
+   Nombre: Perry
+   Sueldo: 726762
+   Legajo: Edgetag
+
+------ EMPLEADO15 ------
+   Nombre: Adolphe
+   Sueldo: 722091
+   Legajo: Blognation
+
+------ EMPLEADO16 ------
+   Nombre: Olimpia
+   Sueldo: 719954
+   Legajo: Aimbo
+
+------ EMPLEADO17 ------
+   Nombre: Marris
+   Sueldo: 717489
+   Legajo: Eazzy
+
+------ EMPLEADO18 ------
+   Nombre: Joly
+   Sueldo: 715050
+   Legajo: Browsebug
+
+------ EMPLEADO19 ------
+   Nombre: Pete
+   Sueldo: 714252
+   Legajo: Cogidoo
+
+------ EMPLEADO20 ------
+   Nombre: Culver
+   Sueldo: 710662
+   Legajo: Feedfish
+
+------ EMPLEADO21 ------
+   Nombre: Harman
+   Sueldo: 710227
+   Legajo: Browsebug
+
+------ EMPLEADO22 ------
+   Nombre: Kelila
+   Sueldo: 710132
+   Legajo: DabZ
+
+------ EMPLEADO23 ------
+   Nombre: Saxe
+   Sueldo: 695457
+   Legajo: Devshare
+
+------ EMPLEADO24 ------
+   Nombre: Auroora
+   Sueldo: 692741
+   Legajo: Divanoodle
+
+------ EMPLEADO25 ------
+   Nombre: Leticia
+   Sueldo: 683265
+   Legajo: Babbleblab
+
+------ EMPLEADO26 ------
+   Nombre: Fifine
+   Sueldo: 682664
+   Legajo: Brainsphere
+
+------ EMPLEADO27 ------
+   Nombre: Siegfried
+   Sueldo: 682576
+   Legajo: Edgepulse
+
+------ EMPLEADO28 ------
+   Nombre: Mellisa
+   Sueldo: 677872
+   Legajo: Browsedrive
+
+------ EMPLEADO29 ------
+   Nombre: Hebert
+   Sueldo: 676979
+   Legajo: Browseblab
+
+------ EMPLEADO30 ------
+   Nombre: Bethany
+   Sueldo: 668957
+   Legajo: Cogidoo
+
+------ EMPLEADO31 ------
+   Nombre: Harman
+   Sueldo: 662621
+   Legajo: Camimbo
+
+------ EMPLEADO32 ------
+   Nombre: Carleen
+   Sueldo: 661059
+   Legajo: Eamia
+
+------ EMPLEADO33 ------
+   Nombre: Marylinda
+   Sueldo: 659421
+   Legajo: Flashpoint
+
+------ EMPLEADO34 ------
+   Nombre: Randall
+   Sueldo: 658329
+   Legajo: Abatz
+
+------ EMPLEADO35 ------
+   Nombre: Auroora
+   Sueldo: 657686
+   Legajo: Edgeify
+
+------ EMPLEADO36 ------
+   Nombre: Booth
+   Sueldo: 656439
+   Legajo: Devify
+
+------ EMPLEADO37 ------
+   Nombre: Robinette
+   Sueldo: 654208
+   Legajo: Divanoodle
+
+------ EMPLEADO38 ------
+   Nombre: Fidelia
+   Sueldo: 650925
+   Legajo: Eamia
+
+------ EMPLEADO39 ------
+   Nombre: Fidelia
+   Sueldo: 647392
+   Legajo: Dabtype
+
+------ EMPLEADO40 ------
+   Nombre: Gilbert
+   Sueldo: 640691
+   Legajo: Browsetype
+
+------ EMPLEADO41 ------
+   Nombre: Sandi
+   Sueldo: 638330
+   Legajo: Bubbletube
+
+------ EMPLEADO42 ------
+   Nombre: Joly
+   Sueldo: 629327
+   Legajo: Feedfire
+
+------ EMPLEADO43 ------
+   Nombre: Ollie
+   Sueldo: 628742
+   Legajo: Divanoodle
+
+------ EMPLEADO44 ------
+   Nombre: Adolphe
+   Sueldo: 622805
+   Legajo: Ainyx
+
+------ EMPLEADO45 ------
+   Nombre: Bill
+   Sueldo: 619077
+   Legajo: Cogibox
+
+------ EMPLEADO46 ------
+   Nombre: Bear
+   Sueldo: 610173
+   Legajo: Brainverse
+
+------ EMPLEADO47 ------
+   Nombre: Culver
+   Sueldo: 607790
+   Legajo: Buzzdog
+
+------ EMPLEADO48 ------
+   Nombre: Torrance
+   Sueldo: 606745
+   Legajo: Divavu
+
+------ EMPLEADO49 ------
+   Nombre: Harper
+   Sueldo: 605744
+   Legajo: Cogibox
+
+------ EMPLEADO50 ------
+   Nombre: Bill
+   Sueldo: 601747
+   Legajo: Feedbug
+
+------ EMPLEADO51 ------
+   Nombre: Alli
+   Sueldo: 600693
+   Legajo: Ainyx
+
+------ EMPLEADO52 ------
+   Nombre: Fayette
+   Sueldo: 596450
+   Legajo: Eidel
+
+------ EMPLEADO53 ------
+   Nombre: Clo
+   Sueldo: 589858
+   Legajo: Dabfeed
+
+------ EMPLEADO54 ------
+   Nombre: Roanna
+   Sueldo: 571092
+   Legajo: Devpulse
+
+------ EMPLEADO55 ------
+   Nombre: Siegfried
+   Sueldo: 565751
+   Legajo: Bubbletube
+
+------ EMPLEADO56 ------
+   Nombre: Mikaela
+   Sueldo: 564786
+   Legajo: Brainverse
+
+------ EMPLEADO57 ------
+   Nombre: Rosella
+   Sueldo: 563217
+   Legajo: Fivechat
+
+------ EMPLEADO58 ------
+   Nombre: Laird
+   Sueldo: 556209
+   Legajo: Feedfire
+
+------ EMPLEADO59 ------
+   Nombre: Jake
+   Sueldo: 554520
+   Legajo: Digitube
+
+------ EMPLEADO60 ------
+   Nombre: Eldredge
+   Sueldo: 548504
+   Legajo: Buzzshare
+
+------ EMPLEADO61 ------
+   Nombre: Lexie
+   Sueldo: 539820
+   Legajo: Eidel
+
+------ EMPLEADO62 ------
+   Nombre: Gerrie
+   Sueldo: 535083
+   Legajo: Abata
+
+------ EMPLEADO63 ------
+   Nombre: Mellisa
+   Sueldo: 530912
+   Legajo: Browsecat
+
+------ EMPLEADO64 ------
+   Nombre: Stacie
+   Sueldo: 521034
+   Legajo: Eare
+
+------ EMPLEADO65 ------
+   Nombre: Ed
+   Sueldo: 512588
+   Legajo: Ailane
+
+------ EMPLEADO66 ------
+   Nombre: Hebert
+   Sueldo: 504395
+   Legajo: Avavee
+
+------ EMPLEADO67 ------
+   Nombre: Kelila
+   Sueldo: 499730
+   Legajo: Camimbo
+
+------ EMPLEADO68 ------
+   Nombre: Gilbert
+   Sueldo: 482658
+   Legajo: Edgetag
+
+------ EMPLEADO69 ------
+   Nombre: Waylan
+   Sueldo: 467792
+   Legajo: Einti
+
+------ EMPLEADO70 ------
+   Nombre: Alli
+   Sueldo: 467594
+   Legajo: Blogtag
+
+------ EMPLEADO71 ------
+   Nombre: Sandi
+   Sueldo: 464562
+   Legajo: Devbug
+
+------ EMPLEADO72 ------
+   Nombre: Trumaine
+   Sueldo: 462955
+   Legajo: Babbleset
+
+------ EMPLEADO73 ------
+   Nombre: Leesa
+   Sueldo: 458896
+   Legajo: Agimba
+
+------ EMPLEADO74 ------
+   Nombre: Ollie
+   Sueldo: 430378
+   Legajo: Divavu
+
+------ EMPLEADO75 ------
+   Nombre: Freddie
+   Sueldo: 426604
+   Legajo: DabZ
+
+------ EMPLEADO76 ------
+   Nombre: Elsa
+   Sueldo: 426408
+   Legajo: Digitube
+
+------ EMPLEADO77 ------
+   Nombre: Mellisa
+   Sueldo: 424779
+   Legajo: Feedspan
+
+------ EMPLEADO78 ------
+   Nombre: Jewell
+   Sueldo: 417031
+   Legajo: Dabvine
+
+------ EMPLEADO79 ------
+   Nombre: Sylvia
+   Sueldo: 416058
+   Legajo: Cogibox
+
+------ EMPLEADO80 ------
+   Nombre: Harper
+   Sueldo: 409470
+   Legajo: Edgeblab
+
+------ EMPLEADO81 ------
+   Nombre: Lexie
+   Sueldo: 408496
+   Legajo: Dablist
+
+------ EMPLEADO82 ------
+   Nombre: Pete
+   Sueldo: 405427
+   Legajo: Buzzster
+
+------ EMPLEADO83 ------
+   Nombre: Gweneth
+   Sueldo: 403510
+   Legajo: Browsetype
+
+------ EMPLEADO84 ------
+   Nombre: Van
+   Sueldo: 403257
+   Legajo: Devpulse
+
+------ EMPLEADO85 ------
+   Nombre: Hebert
+   Sueldo: 402891
+   Legajo: Divape
+
+------ EMPLEADO86 ------
+   Nombre: Bonnibelle
+   Sueldo: 398551
+   Legajo: Cogidoo
+
+------ EMPLEADO87 ------
+   Nombre: Trumaine
+   Sueldo: 390362
+   Legajo: Avamm
+
+------ EMPLEADO88 ------
+   Nombre: Mahmud
+   Sueldo: 381421
+   Legajo: Dabvine
+
+------ EMPLEADO89 ------
+   Nombre: Trumaine
+   Sueldo: 370330
+   Legajo: Dabjam
+
+------ EMPLEADO90 ------
+   Nombre: Germana
+   Sueldo: 353134
+   Legajo: Eamia
+
+------ EMPLEADO91 ------
+   Nombre: Sandi
+   Sueldo: 339585
+   Legajo: DabZ
+
+------ EMPLEADO92 ------
+   Nombre: Perry
+   Sueldo: 322807
+   Legajo: Eadel
+
+------ EMPLEADO93 ------
+   Nombre: Clo
+   Sueldo: 322472
+   Legajo: Devpoint
+
+------ EMPLEADO94 ------
+   Nombre: Auroora
+   Sueldo: 320889
+   Legajo: Eadel
+
+------ EMPLEADO95 ------
+   Nombre: Ollie
+   Sueldo: 320050
+   Legajo: Dablist
+
+------ EMPLEADO96 ------
+   Nombre: Maximilian
+   Sueldo: 318171
+   Legajo: Fivebridge
+
+------ EMPLEADO97 ------
+   Nombre: Janessa
+   Sueldo: 315088
+   Legajo: Fivebridge
+
+------ EMPLEADO98 ------
+   Nombre: Bill
+   Sueldo: 304420
+   Legajo: Aivee
+
+------ EMPLEADO99 ------
+   Nombre: Adolphe
+   Sueldo: 303481
+   Legajo: Brainverse
+
+------ EMPLEADO100 ------
+   Nombre: Norina
+   Sueldo: 302632
+   Legajo: Dabvine
+
